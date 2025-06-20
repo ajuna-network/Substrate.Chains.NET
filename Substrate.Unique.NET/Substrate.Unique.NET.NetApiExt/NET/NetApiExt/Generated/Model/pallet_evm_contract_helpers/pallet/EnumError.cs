@@ -42,7 +42,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm_contract_hel
     }
     
     /// <summary>
-    /// >> 653 - Variant[pallet_evm_contract_helpers.pallet.Error]
+    /// >> 734 - Variant[pallet_evm_contract_helpers.pallet.Error]
     /// The `Error` enum of this pallet.
     /// </summary>
     public sealed class EnumError : BaseEnum<Error>

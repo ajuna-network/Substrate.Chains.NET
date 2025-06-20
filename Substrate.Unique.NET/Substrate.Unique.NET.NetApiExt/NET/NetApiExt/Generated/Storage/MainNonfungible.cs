@@ -50,7 +50,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
                             Substrate.NetApi.Model.Meta.Storage.Hasher.Twox64Concat,
                             Substrate.NetApi.Model.Meta.Storage.Hasher.Twox64Concat,
                             Substrate.NetApi.Model.Meta.Storage.Hasher.Twox64Concat,
-                            Substrate.NetApi.Model.Meta.Storage.Hasher.Twox64Concat}, typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.EnumPropertyScope, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT12>), typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40)));
+                            Substrate.NetApi.Model.Meta.Storage.Hasher.Twox64Concat}, typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.EnumPropertyScope, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT17>), typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT50)));
             _client.StorageKeyDict.Add(new System.Tuple<string, string>("Nonfungible", "Owned"), new System.Tuple<Substrate.NetApi.Model.Meta.Storage.Hasher[], System.Type, System.Type>(new Substrate.NetApi.Model.Meta.Storage.Hasher[] {
                             Substrate.NetApi.Model.Meta.Storage.Hasher.Twox64Concat,
                             Substrate.NetApi.Model.Meta.Storage.Hasher.BlakeTwo128Concat,
@@ -207,7 +207,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
         /// 
         ///  Currently unused.
         /// </summary>
-        public static string TokenAuxPropertiesParams(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.EnumPropertyScope, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT12> key)
+        public static string TokenAuxPropertiesParams(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.EnumPropertyScope, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT17> key)
         {
             return RequestGenerator.GetStorage("Nonfungible", "TokenAuxProperties", Substrate.NetApi.Model.Meta.Storage.Type.Map, new Substrate.NetApi.Model.Meta.Storage.Hasher[] {
                         Substrate.NetApi.Model.Meta.Storage.Hasher.Twox64Concat,
@@ -237,10 +237,10 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
         /// 
         ///  Currently unused.
         /// </summary>
-        public async Task<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40> TokenAuxProperties(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.EnumPropertyScope, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT12> key, string blockhash, CancellationToken token)
+        public async Task<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT50> TokenAuxProperties(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.EnumPropertyScope, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT17> key, string blockhash, CancellationToken token)
         {
             string parameters = NonfungibleStorage.TokenAuxPropertiesParams(key);
-            var result = await _client.GetStorageAsync<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40>(parameters, blockhash, token);
+            var result = await _client.GetStorageAsync<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT50>(parameters, blockhash, token);
             return result;
         }
         

@@ -24,34 +24,41 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.orml_vesting.module
         
         /// <summary>
         /// >> claim
-        /// See [`Pallet::claim`].
         /// </summary>
         claim = 0,
         
         /// <summary>
         /// >> vested_transfer
-        /// See [`Pallet::vested_transfer`].
         /// </summary>
         vested_transfer = 1,
         
         /// <summary>
         /// >> update_vesting_schedules
-        /// See [`Pallet::update_vesting_schedules`].
         /// </summary>
         update_vesting_schedules = 2,
         
         /// <summary>
         /// >> claim_for
-        /// See [`Pallet::claim_for`].
         /// </summary>
         claim_for = 3,
     }
     
     /// <summary>
-    /// >> 116 - Variant[orml_vesting.module.Call]
+    /// >> 126 - Variant[orml_vesting.module.Call]
     /// Contains a variant per dispatchable extrinsic that this pallet has.
     /// </summary>
-    public sealed class EnumCall : BaseEnumExt<Call, BaseVoid, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress, Substrate.Unique.NET.NetApiExt.Generated.Model.orml_vesting.VestingSchedule>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.orml_vesting.VestingSchedule>>, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress>
+    public sealed class EnumCall : BaseEnumRust<Call>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumCall()
+        {
+				AddTypeDecoder<BaseVoid>(Call.claim);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress, Substrate.Unique.NET.NetApiExt.Generated.Model.orml_vesting.VestingSchedule>>(Call.vested_transfer);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.orml_vesting.VestingSchedule>>>(Call.update_vesting_schedules);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress>(Call.claim_for);
+        }
     }
 }

@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.block
     
     
     /// <summary>
-    /// >> 637 - Composite[ethereum.block.Block]
+    /// >> 718 - Composite[ethereum.block.Block]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class Block : BaseType
@@ -66,7 +66,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.block
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

@@ -71,6 +71,17 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         }
         
         /// <summary>
+        /// >> Suicided
+        /// </summary>
+        [HttpGet("Suicided")]
+        [ProducesResponseType(typeof(Substrate.NetApi.Model.Types.Base.BaseTuple), 200)]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.EVMStorage), "SuicidedParams", typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160))]
+        public IActionResult GetSuicided(string key)
+        {
+            return this.Ok(_eVMStorage.GetSuicided(key));
+        }
+        
+        /// <summary>
         /// >> CurrentLogs
         ///  Written on log, reset after transaction
         ///  Should be empty between transactions

@@ -30,7 +30,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm_migration.pa
     }
     
     /// <summary>
-    /// >> 376 - Variant[pallet_evm_migration.pallet.Event]
+    /// >> 443 - Variant[pallet_evm_migration.pallet.Event]
     /// The `Event` enum of this pallet
     /// </summary>
     public sealed class EnumEvent : BaseEnum<Event>

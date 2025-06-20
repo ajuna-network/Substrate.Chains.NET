@@ -66,7 +66,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_state_trie_migra
     }
     
     /// <summary>
-    /// >> 32 - Variant[pallet_state_trie_migration.pallet.Error]
+    /// >> 34 - Variant[pallet_state_trie_migration.pallet.Error]
     /// The `Error` enum of this pallet.
     /// </summary>
     public sealed class EnumError : BaseEnum<Error>

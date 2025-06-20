@@ -38,9 +38,19 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types
     }
     
     /// <summary>
-    /// >> 70 - Variant[pallet_democracy.types.MetadataOwner]
+    /// >> 80 - Variant[pallet_democracy.types.MetadataOwner]
     /// </summary>
-    public sealed class EnumMetadataOwner : BaseEnumExt<MetadataOwner, BaseVoid, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Primitive.U32>
+    public sealed class EnumMetadataOwner : BaseEnumRust<MetadataOwner>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumMetadataOwner()
+        {
+				AddTypeDecoder<BaseVoid>(MetadataOwner.External);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(MetadataOwner.Proposal);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(MetadataOwner.Referendum);
+        }
     }
 }

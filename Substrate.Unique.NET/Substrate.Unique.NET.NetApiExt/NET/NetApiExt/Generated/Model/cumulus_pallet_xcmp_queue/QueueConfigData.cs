@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_que
     
     
     /// <summary>
-    /// >> 538 - Composite[cumulus_pallet_xcmp_queue.QueueConfigData]
+    /// >> 616 - Composite[cumulus_pallet_xcmp_queue.QueueConfigData]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class QueueConfigData : BaseType
@@ -36,18 +36,6 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_que
         /// >> resume_threshold
         /// </summary>
         public Substrate.NetApi.Model.Types.Primitive.U32 ResumeThreshold { get; set; }
-        /// <summary>
-        /// >> threshold_weight
-        /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight ThresholdWeight { get; set; }
-        /// <summary>
-        /// >> weight_restrict_decay
-        /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight WeightRestrictDecay { get; set; }
-        /// <summary>
-        /// >> xcmp_max_individual_weight
-        /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight XcmpMaxIndividualWeight { get; set; }
         
         /// <inheritdoc/>
         public override string TypeName()
@@ -62,9 +50,6 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_que
             result.AddRange(SuspendThreshold.Encode());
             result.AddRange(DropThreshold.Encode());
             result.AddRange(ResumeThreshold.Encode());
-            result.AddRange(ThresholdWeight.Encode());
-            result.AddRange(WeightRestrictDecay.Encode());
-            result.AddRange(XcmpMaxIndividualWeight.Encode());
             return result.ToArray();
         }
         
@@ -78,16 +63,10 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_que
             DropThreshold.Decode(byteArray, ref p);
             ResumeThreshold = new Substrate.NetApi.Model.Types.Primitive.U32();
             ResumeThreshold.Decode(byteArray, ref p);
-            ThresholdWeight = new Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight();
-            ThresholdWeight.Decode(byteArray, ref p);
-            WeightRestrictDecay = new Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight();
-            WeightRestrictDecay.Decode(byteArray, ref p);
-            XcmpMaxIndividualWeight = new Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight();
-            XcmpMaxIndividualWeight.Decode(byteArray, ref p);
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

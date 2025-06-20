@@ -65,7 +65,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         /// >> AssetTraps
         ///  The existing asset traps.
         /// 
-        ///  Key is the blake2 256 hash of (origin, versioned `MultiAssets`) pair. Value is the number of
+        ///  Key is the blake2 256 hash of (origin, versioned `Assets`) pair. Value is the number of
         ///  times this pair has been trapped (usually just 1 if it exists at all).
         /// </summary>
         [HttpGet("AssetTraps")]
@@ -95,7 +95,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         /// </summary>
         [HttpGet("SupportedVersion")]
         [ProducesResponseType(typeof(Substrate.NetApi.Model.Types.Primitive.U32), 200)]
-        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.PolkadotXcmStorage), "SupportedVersionParams", typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedMultiLocation>))]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.PolkadotXcmStorage), "SupportedVersionParams", typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedLocation>))]
         public IActionResult GetSupportedVersion(string key)
         {
             return this.Ok(_polkadotXcmStorage.GetSupportedVersion(key));
@@ -107,7 +107,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         /// </summary>
         [HttpGet("VersionNotifiers")]
         [ProducesResponseType(typeof(Substrate.NetApi.Model.Types.Primitive.U64), 200)]
-        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.PolkadotXcmStorage), "VersionNotifiersParams", typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedMultiLocation>))]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.PolkadotXcmStorage), "VersionNotifiersParams", typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedLocation>))]
         public IActionResult GetVersionNotifiers(string key)
         {
             return this.Ok(_polkadotXcmStorage.GetVersionNotifiers(key));
@@ -120,7 +120,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         /// </summary>
         [HttpGet("VersionNotifyTargets")]
         [ProducesResponseType(typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U64, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight, Substrate.NetApi.Model.Types.Primitive.U32>), 200)]
-        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.PolkadotXcmStorage), "VersionNotifyTargetsParams", typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedMultiLocation>))]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.PolkadotXcmStorage), "VersionNotifyTargetsParams", typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedLocation>))]
         public IActionResult GetVersionNotifyTargets(string key)
         {
             return this.Ok(_polkadotXcmStorage.GetVersionNotifyTargets(key));
@@ -133,7 +133,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         ///  which is used as a prioritization.
         /// </summary>
         [HttpGet("VersionDiscoveryQueue")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT37), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT45), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.PolkadotXcmStorage), "VersionDiscoveryQueueParams")]
         public IActionResult GetVersionDiscoveryQueue()
         {
@@ -169,7 +169,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         ///  Fungible assets which we know are locked on this chain.
         /// </summary>
         [HttpGet("LockedFungibles")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT39), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT47), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.PolkadotXcmStorage), "LockedFungiblesParams", typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32))]
         public IActionResult GetLockedFungibles(string key)
         {
@@ -186,6 +186,41 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         public IActionResult GetXcmExecutionSuspended()
         {
             return this.Ok(_polkadotXcmStorage.GetXcmExecutionSuspended());
+        }
+        
+        /// <summary>
+        /// >> ShouldRecordXcm
+        ///  Whether or not incoming XCMs (both executed locally and received) should be recorded.
+        ///  Only one XCM program will be recorded at a time.
+        ///  This is meant to be used in runtime APIs, and it's advised it stays false
+        ///  for all other use cases, so as to not degrade regular performance.
+        /// 
+        ///  Only relevant if this pallet is being used as the [`xcm_executor::traits::RecordXcm`]
+        ///  implementation in the XCM executor configuration.
+        /// </summary>
+        [HttpGet("ShouldRecordXcm")]
+        [ProducesResponseType(typeof(Substrate.NetApi.Model.Types.Primitive.Bool), 200)]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.PolkadotXcmStorage), "ShouldRecordXcmParams")]
+        public IActionResult GetShouldRecordXcm()
+        {
+            return this.Ok(_polkadotXcmStorage.GetShouldRecordXcm());
+        }
+        
+        /// <summary>
+        /// >> RecordedXcm
+        ///  If [`ShouldRecordXcm`] is set to true, then the last XCM program executed locally
+        ///  will be stored here.
+        ///  Runtime APIs can fetch the XCM that was executed by accessing this value.
+        /// 
+        ///  Only relevant if this pallet is being used as the [`xcm_executor::traits::RecordXcm`]
+        ///  implementation in the XCM executor configuration.
+        /// </summary>
+        [HttpGet("RecordedXcm")]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.XcmT1), 200)]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.PolkadotXcmStorage), "RecordedXcmParams")]
+        public IActionResult GetRecordedXcm()
+        {
+            return this.Ok(_polkadotXcmStorage.GetRecordedXcm());
         }
     }
 }

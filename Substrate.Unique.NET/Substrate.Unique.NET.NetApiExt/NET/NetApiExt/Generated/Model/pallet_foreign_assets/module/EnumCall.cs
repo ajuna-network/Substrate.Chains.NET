@@ -24,16 +24,29 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_foreign_assets.m
         
         /// <summary>
         /// >> force_register_foreign_asset
-        /// See [`Pallet::force_register_foreign_asset`].
         /// </summary>
         force_register_foreign_asset = 0,
+        
+        /// <summary>
+        /// >> force_reset_foreign_asset_location
+        /// </summary>
+        force_reset_foreign_asset_location = 1,
     }
     
     /// <summary>
-    /// >> 323 - Variant[pallet_foreign_assets.module.Call]
+    /// >> 385 - Variant[pallet_foreign_assets.module.Call]
     /// Contains a variant per dispatchable extrinsic that this pallet has.
     /// </summary>
-    public sealed class EnumCall : BaseEnumExt<Call, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedAssetId, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT8, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT10, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_foreign_assets.EnumForeignCollectionMode>>
+    public sealed class EnumCall : BaseEnumRust<Call>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumCall()
+        {
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedAssetId, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT13, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT15, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_foreign_assets.EnumForeignCollectionMode>>(Call.force_register_foreign_asset);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedAssetId, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedAssetId>>(Call.force_reset_foreign_asset_location);
+        }
     }
 }

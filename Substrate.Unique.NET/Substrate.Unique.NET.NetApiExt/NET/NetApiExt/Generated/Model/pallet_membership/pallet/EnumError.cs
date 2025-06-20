@@ -42,7 +42,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_membership.palle
     }
     
     /// <summary>
-    /// >> 499 - Variant[pallet_membership.pallet.Error]
+    /// >> 606 - Variant[pallet_membership.pallet.Error]
     /// The `Error` enum of this pallet.
     /// </summary>
     public sealed class EnumError : BaseEnum<Error>

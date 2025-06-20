@@ -87,10 +87,16 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collective.palle
         /// Prime account is not a member
         /// </summary>
         PrimeAccountNotMember = 10,
+        
+        /// <summary>
+        /// >> ProposalActive
+        /// Proposal is still active.
+        /// </summary>
+        ProposalActive = 11,
     }
     
     /// <summary>
-    /// >> 495 - Variant[pallet_collective.pallet.Error]
+    /// >> 604 - Variant[pallet_collective.pallet.Error]
     /// The `Error` enum of this pallet.
     /// </summary>
     public sealed class EnumError : BaseEnum<Error>

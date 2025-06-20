@@ -53,9 +53,22 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset
     }
     
     /// <summary>
-    /// >> 61 - Variant[xcm.v3.multiasset.AssetInstance]
+    /// >> 154 - Variant[xcm.v3.multiasset.AssetInstance]
     /// </summary>
-    public sealed class EnumAssetInstance : BaseEnumExt<AssetInstance, BaseVoid, Substrate.NetApi.Model.Types.Base.BaseCom<Substrate.NetApi.Model.Types.Primitive.U128>, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr4U8, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr8U8, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr16U8, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8>
+    public sealed class EnumAssetInstance : BaseEnumRust<AssetInstance>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumAssetInstance()
+        {
+				AddTypeDecoder<BaseVoid>(AssetInstance.Undefined);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Base.BaseCom<Substrate.NetApi.Model.Types.Primitive.U128>>(AssetInstance.Index);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr4U8>(AssetInstance.Array4);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr8U8>(AssetInstance.Array8);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr16U8>(AssetInstance.Array16);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8>(AssetInstance.Array32);
+        }
     }
 }

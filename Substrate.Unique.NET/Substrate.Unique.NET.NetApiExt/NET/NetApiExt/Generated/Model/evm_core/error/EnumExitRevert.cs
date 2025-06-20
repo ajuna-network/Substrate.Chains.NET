@@ -28,7 +28,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error
     }
     
     /// <summary>
-    /// >> 373 - Variant[evm_core.error.ExitRevert]
+    /// >> 440 - Variant[evm_core.error.ExitRevert]
     /// </summary>
     public sealed class EnumExitRevert : BaseEnum<ExitRevert>
     {

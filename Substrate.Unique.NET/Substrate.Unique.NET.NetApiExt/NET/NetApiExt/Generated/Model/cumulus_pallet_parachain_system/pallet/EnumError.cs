@@ -73,7 +73,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_parachai
     }
     
     /// <summary>
-    /// >> 421 - Variant[cumulus_pallet_parachain_system.pallet.Error]
+    /// >> 487 - Variant[cumulus_pallet_parachain_system.pallet.Error]
     /// The `Error` enum of this pallet.
     /// </summary>
     public sealed class EnumError : BaseEnum<Error>

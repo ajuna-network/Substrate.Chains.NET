@@ -65,7 +65,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         /// >> PreimageFor
         /// </summary>
         [HttpGet("PreimageFor")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.PreimageStorage), "PreimageForParams", typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256, Substrate.NetApi.Model.Types.Primitive.U32>))]
         public IActionResult GetPreimageFor(string key)
         {

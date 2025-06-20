@@ -100,9 +100,11 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         /// >> Locks
         ///  Any liquidity locks on some account balances.
         ///  NOTE: Should only be accessed when setting, changing and freeing a lock.
+        /// 
+        ///  Use of locks is deprecated in favour of freezes. See `https://github.com/paritytech/substrate/pull/12951/`
         /// </summary>
         [HttpGet("Locks")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT1), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.BalancesStorage), "LocksParams", typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32))]
         public IActionResult GetLocks(string key)
         {
@@ -112,9 +114,11 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         /// <summary>
         /// >> Reserves
         ///  Named reserves on some account balances.
+        /// 
+        ///  Use of reserves is deprecated in favour of holds. See `https://github.com/paritytech/substrate/pull/12951/`
         /// </summary>
         [HttpGet("Reserves")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT19), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT24), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.BalancesStorage), "ReservesParams", typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32))]
         public IActionResult GetReserves(string key)
         {
@@ -126,7 +130,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         ///  Holds on account balances.
         /// </summary>
         [HttpGet("Holds")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT20), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT25), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.BalancesStorage), "HoldsParams", typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32))]
         public IActionResult GetHolds(string key)
         {
@@ -138,7 +142,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         ///  Freeze locks on account balances.
         /// </summary>
         [HttpGet("Freezes")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT21), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.BalancesStorage), "FreezesParams", typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32))]
         public IActionResult GetFreezes(string key)
         {

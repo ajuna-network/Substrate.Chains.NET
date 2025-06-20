@@ -132,7 +132,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         {
             return this.Ok(_commonStorage.GetAllowlist(key));
         }
-        
+
         /// <summary>
         /// >> DummyStorageValue
         ///  Not used by code, exists only to provide some types to metadata.

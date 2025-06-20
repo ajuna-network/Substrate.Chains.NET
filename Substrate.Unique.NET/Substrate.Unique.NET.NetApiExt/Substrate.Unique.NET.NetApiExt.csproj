@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<PackageId>Substrate.Unique.NET.Extension</PackageId>
 		<TargetFrameworks>netstandard2.0;netstandard2.1;net6.0</TargetFrameworks>
-		<Version>1.3007.0</Version>
+		<Version>1.17008.0</Version>
 		<Company>Substrate Gaming</Company>
 		<Authors>Substrate Gaming</Authors>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -21,7 +21,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Substrate.NET.API" Version="0.9.19" />
+		<PackageReference Include="Substrate.NET.API" Version="0.9.24" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -24,46 +24,63 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm_migration.pa
         
         /// <summary>
         /// >> begin
-        /// See [`Pallet::begin`].
+        /// Start contract migration, inserts contract stub at target address,
+        /// and marks account as pending, allowing to insert storage
         /// </summary>
         begin = 0,
         
         /// <summary>
         /// >> set_data
-        /// See [`Pallet::set_data`].
+        /// Insert items into contract storage, this method can be called
+        /// multiple times
         /// </summary>
         set_data = 1,
         
         /// <summary>
         /// >> finish
-        /// See [`Pallet::finish`].
+        /// Finish contract migration, allows it to be called.
+        /// It is not possible to alter contract storage via [`Self::set_data`]
+        /// after this call.
         /// </summary>
         finish = 2,
         
         /// <summary>
         /// >> insert_eth_logs
-        /// See [`Pallet::insert_eth_logs`].
+        /// Create ethereum events attached to the fake transaction
         /// </summary>
         insert_eth_logs = 3,
         
         /// <summary>
         /// >> insert_events
-        /// See [`Pallet::insert_events`].
+        /// Create substrate events
         /// </summary>
         insert_events = 4,
         
         /// <summary>
         /// >> remove_rmrk_data
-        /// See [`Pallet::remove_rmrk_data`].
+        /// Remove remark compatibility data leftovers
         /// </summary>
         remove_rmrk_data = 5,
     }
     
     /// <summary>
-    /// >> 344 - Variant[pallet_evm_migration.pallet.Call]
+    /// >> 405 - Variant[pallet_evm_migration.pallet.Call]
     /// Contains a variant per dispatchable extrinsic that this pallet has.
     /// </summary>
-    public sealed class EnumCall : BaseEnumExt<Call, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>>>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.log.Log>, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>, BaseVoid>
+    public sealed class EnumCall : BaseEnumRust<Call>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumCall()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>(Call.begin);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>>>>(Call.set_data);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>>(Call.finish);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.log.Log>>(Call.insert_eth_logs);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>>(Call.insert_events);
+				AddTypeDecoder<BaseVoid>(Call.remove_rmrk_data);
+        }
     }
 }

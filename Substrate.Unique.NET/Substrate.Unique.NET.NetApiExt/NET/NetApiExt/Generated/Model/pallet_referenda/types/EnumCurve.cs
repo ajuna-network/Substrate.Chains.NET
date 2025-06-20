@@ -38,9 +38,19 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_referenda.types
     }
     
     /// <summary>
-    /// >> 518 - Variant[pallet_referenda.types.Curve]
+    /// >> 591 - Variant[pallet_referenda.types.Curve]
     /// </summary>
-    public sealed class EnumCurve : BaseEnumExt<Curve, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.fixed_point.FixedI64, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.fixed_point.FixedI64, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.fixed_point.FixedI64>>
+    public sealed class EnumCurve : BaseEnumRust<Curve>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumCurve()
+        {
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill>>(Curve.LinearDecreasing);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.per_things.Perbill>>(Curve.SteppedDecreasing);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.fixed_point.FixedI64, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.fixed_point.FixedI64, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.fixed_point.FixedI64>>(Curve.Reciprocal);
+        }
     }
 }

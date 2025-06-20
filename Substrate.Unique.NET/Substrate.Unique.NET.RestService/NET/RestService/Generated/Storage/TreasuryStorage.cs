@@ -26,12 +26,18 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         
         /// <summary>
         /// >> ProposalCount
+        ///  DEPRECATED: associated with `spend_local` call and will be removed in May 2025.
+        ///  Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`.
+        /// 
         ///  Number of proposals that have been made.
         /// </summary>
         Substrate.NetApi.Model.Types.Primitive.U32 GetProposalCount();
         
         /// <summary>
         /// >> Proposals
+        ///  DEPRECATED: associated with `spend_local` call and will be removed in May 2025.
+        ///  Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`.
+        /// 
         ///  Proposals that have been made.
         /// </summary>
         Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_treasury.Proposal GetProposals(string key);
@@ -44,9 +50,12 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         
         /// <summary>
         /// >> Approvals
+        ///  DEPRECATED: associated with `spend_local` call and will be removed in May 2025.
+        ///  Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`.
+        /// 
         ///  Proposal indices that have been approved but not yet awarded.
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT22 GetApprovals();
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT27 GetApprovals();
         
         /// <summary>
         /// >> SpendCount
@@ -59,6 +68,12 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         ///  Spends that have been approved and being processed.
         /// </summary>
         Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_treasury.SpendStatus GetSpends(string key);
+        
+        /// <summary>
+        /// >> LastSpendPeriod
+        ///  The blocknumber for the last triggered spend period.
+        /// </summary>
+        Substrate.NetApi.Model.Types.Primitive.U32 GetLastSpendPeriod();
     }
     
     /// <summary>
@@ -85,7 +100,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _approvalsTypedStorage typed storage field
         /// </summary>
-        private TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT22> _approvalsTypedStorage;
+        private TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT27> _approvalsTypedStorage;
         
         /// <summary>
         /// _spendCountTypedStorage typed storage field
@@ -98,6 +113,11 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_treasury.SpendStatus> _spendsTypedStorage;
         
         /// <summary>
+        /// _lastSpendPeriodTypedStorage typed storage field
+        /// </summary>
+        private TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32> _lastSpendPeriodTypedStorage;
+        
+        /// <summary>
         /// TreasuryStorage constructor.
         /// </summary>
         public TreasuryStorage(IStorageDataProvider storageDataProvider, List<IStorageChangeDelegate> storageChangeDelegates)
@@ -105,9 +125,10 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             this.ProposalCountTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32>("Treasury.ProposalCount", storageDataProvider, storageChangeDelegates);
             this.ProposalsTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_treasury.Proposal>("Treasury.Proposals", storageDataProvider, storageChangeDelegates);
             this.DeactivatedTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U128>("Treasury.Deactivated", storageDataProvider, storageChangeDelegates);
-            this.ApprovalsTypedStorage = new TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT22>("Treasury.Approvals", storageDataProvider, storageChangeDelegates);
+            this.ApprovalsTypedStorage = new TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT27>("Treasury.Approvals", storageDataProvider, storageChangeDelegates);
             this.SpendCountTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32>("Treasury.SpendCount", storageDataProvider, storageChangeDelegates);
             this.SpendsTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_treasury.SpendStatus>("Treasury.Spends", storageDataProvider, storageChangeDelegates);
+            this.LastSpendPeriodTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32>("Treasury.LastSpendPeriod", storageDataProvider, storageChangeDelegates);
         }
         
         /// <summary>
@@ -158,7 +179,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _approvalsTypedStorage property
         /// </summary>
-        public TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT22> ApprovalsTypedStorage
+        public TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT27> ApprovalsTypedStorage
         {
             get
             {
@@ -201,6 +222,21 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         }
         
         /// <summary>
+        /// _lastSpendPeriodTypedStorage property
+        /// </summary>
+        public TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32> LastSpendPeriodTypedStorage
+        {
+            get
+            {
+                return _lastSpendPeriodTypedStorage;
+            }
+            set
+            {
+                _lastSpendPeriodTypedStorage = value;
+            }
+        }
+        
+        /// <summary>
         /// Connects to all storages and initializes the change subscription handling.
         /// </summary>
         public async Task InitializeAsync(Substrate.ServiceLayer.Storage.IStorageDataProvider dataProvider)
@@ -211,6 +247,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             await ApprovalsTypedStorage.InitializeAsync("Treasury", "Approvals");
             await SpendCountTypedStorage.InitializeAsync("Treasury", "SpendCount");
             await SpendsTypedStorage.InitializeAsync("Treasury", "Spends");
+            await LastSpendPeriodTypedStorage.InitializeAsync("Treasury", "LastSpendPeriod");
         }
         
         /// <summary>
@@ -224,6 +261,9 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         
         /// <summary>
         /// >> ProposalCount
+        ///  DEPRECATED: associated with `spend_local` call and will be removed in May 2025.
+        ///  Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`.
+        /// 
         ///  Number of proposals that have been made.
         /// </summary>
         public Substrate.NetApi.Model.Types.Primitive.U32 GetProposalCount()
@@ -242,6 +282,9 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         
         /// <summary>
         /// >> Proposals
+        ///  DEPRECATED: associated with `spend_local` call and will be removed in May 2025.
+        ///  Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`.
+        /// 
         ///  Proposals that have been made.
         /// </summary>
         public Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_treasury.Proposal GetProposals(string key)
@@ -289,9 +332,12 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         
         /// <summary>
         /// >> Approvals
+        ///  DEPRECATED: associated with `spend_local` call and will be removed in May 2025.
+        ///  Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`.
+        /// 
         ///  Proposal indices that have been approved but not yet awarded.
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT22 GetApprovals()
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT27 GetApprovals()
         {
             return ApprovalsTypedStorage.Get();
         }
@@ -341,6 +387,24 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             {
                 return null;
             }
+        }
+        
+        /// <summary>
+        /// Implements any storage change for Treasury.LastSpendPeriod
+        /// </summary>
+        [StorageChange("Treasury", "LastSpendPeriod")]
+        public void OnUpdateLastSpendPeriod(string data)
+        {
+            LastSpendPeriodTypedStorage.Update(data);
+        }
+        
+        /// <summary>
+        /// >> LastSpendPeriod
+        ///  The blocknumber for the last triggered spend period.
+        /// </summary>
+        public Substrate.NetApi.Model.Types.Primitive.U32 GetLastSpendPeriod()
+        {
+            return LastSpendPeriodTypedStorage.Get();
         }
     }
 }

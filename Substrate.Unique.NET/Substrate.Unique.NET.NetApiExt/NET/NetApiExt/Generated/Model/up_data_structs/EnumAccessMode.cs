@@ -33,7 +33,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs
     }
     
     /// <summary>
-    /// >> 268 - Variant[up_data_structs.AccessMode]
+    /// >> 330 - Variant[up_data_structs.AccessMode]
     /// </summary>
     public sealed class EnumAccessMode : BaseEnum<AccessMode>
     {

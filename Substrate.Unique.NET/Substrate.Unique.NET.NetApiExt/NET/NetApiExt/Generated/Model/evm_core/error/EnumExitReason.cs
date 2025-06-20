@@ -43,9 +43,20 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error
     }
     
     /// <summary>
-    /// >> 367 - Variant[evm_core.error.ExitReason]
+    /// >> 434 - Variant[evm_core.error.ExitReason]
     /// </summary>
-    public sealed class EnumExitReason : BaseEnumExt<ExitReason, Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error.EnumExitSucceed, Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error.EnumExitError, Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error.EnumExitRevert, Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error.EnumExitFatal>
+    public sealed class EnumExitReason : BaseEnumRust<ExitReason>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumExitReason()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error.EnumExitSucceed>(ExitReason.Succeed);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error.EnumExitError>(ExitReason.Error);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error.EnumExitRevert>(ExitReason.Revert);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error.EnumExitFatal>(ExitReason.Fatal);
+        }
     }
 }

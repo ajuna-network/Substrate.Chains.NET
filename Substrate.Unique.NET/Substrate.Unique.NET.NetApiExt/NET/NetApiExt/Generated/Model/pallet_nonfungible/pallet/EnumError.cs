@@ -42,7 +42,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_nonfungible.pall
     }
     
     /// <summary>
-    /// >> 617 - Variant[pallet_nonfungible.pallet.Error]
+    /// >> 698 - Variant[pallet_nonfungible.pallet.Error]
     /// The `Error` enum of this pallet.
     /// </summary>
     public sealed class EnumError : BaseEnum<Error>

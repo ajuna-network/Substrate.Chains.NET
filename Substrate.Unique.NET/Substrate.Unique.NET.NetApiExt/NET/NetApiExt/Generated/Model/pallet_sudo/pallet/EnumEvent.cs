@@ -35,17 +35,34 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_sudo.pallet
         KeyChanged = 1,
         
         /// <summary>
+        /// >> KeyRemoved
+        /// The key was permanently removed.
+        /// </summary>
+        KeyRemoved = 2,
+        
+        /// <summary>
         /// >> SudoAsDone
         /// A [sudo_as](Pallet::sudo_as) call just took place.
         /// </summary>
-        SudoAsDone = 2,
+        SudoAsDone = 3,
     }
     
     /// <summary>
-    /// >> 40 - Variant[pallet_sudo.pallet.Event]
+    /// >> 42 - Variant[pallet_sudo.pallet.Event]
     /// The `Event` enum of this pallet
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.EnumResult, Substrate.NetApi.Model.Types.Base.BaseOpt<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.EnumResult>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.EnumResult>(Event.Sudid);
+				AddTypeDecoder<BaseTuple<Substrate.NetApi.Model.Types.Base.BaseOpt<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>>(Event.KeyChanged);
+				AddTypeDecoder<BaseVoid>(Event.KeyRemoved);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.EnumResult>(Event.SudoAsDone);
+        }
     }
 }

@@ -38,9 +38,19 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs
     }
     
     /// <summary>
-    /// >> 294 - Variant[up_data_structs.CreateItemData]
+    /// >> 356 - Variant[up_data_structs.CreateItemData]
     /// </summary>
-    public sealed class EnumCreateItemData : BaseEnumExt<CreateItemData, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CreateNftData, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CreateFungibleData, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CreateReFungibleData>
+    public sealed class EnumCreateItemData : BaseEnumRust<CreateItemData>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumCreateItemData()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CreateNftData>(CreateItemData.NFT);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CreateFungibleData>(CreateItemData.Fungible);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CreateReFungibleData>(CreateItemData.ReFungible);
+        }
     }
 }

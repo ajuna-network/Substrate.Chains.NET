@@ -43,7 +43,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// 
         ///  This should be empty if `DecidingCount` is less than `TrackInfo::max_deciding`.
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT35 GetTrackQueue(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40 GetTrackQueue(string key);
         
         /// <summary>
         /// >> DecidingCount
@@ -82,7 +82,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _trackQueueTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT35> _trackQueueTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40> _trackQueueTypedStorage;
         
         /// <summary>
         /// _decidingCountTypedStorage typed storage field
@@ -101,7 +101,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         {
             this.ReferendumCountTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32>("FellowshipReferenda.ReferendumCount", storageDataProvider, storageChangeDelegates);
             this.ReferendumInfoForTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_referenda.types.EnumReferendumInfo>("FellowshipReferenda.ReferendumInfoFor", storageDataProvider, storageChangeDelegates);
-            this.TrackQueueTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT35>("FellowshipReferenda.TrackQueue", storageDataProvider, storageChangeDelegates);
+            this.TrackQueueTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40>("FellowshipReferenda.TrackQueue", storageDataProvider, storageChangeDelegates);
             this.DecidingCountTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Primitive.U32>("FellowshipReferenda.DecidingCount", storageDataProvider, storageChangeDelegates);
             this.MetadataOfTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>("FellowshipReferenda.MetadataOf", storageDataProvider, storageChangeDelegates);
         }
@@ -139,7 +139,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _trackQueueTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT35> TrackQueueTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40> TrackQueueTypedStorage
         {
             get
             {
@@ -256,13 +256,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// 
         ///  This should be empty if `DecidingCount` is less than `TrackInfo::max_deciding`.
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT35 GetTrackQueue(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40 GetTrackQueue(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (TrackQueueTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT35 result))
+            if (TrackQueueTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40 result))
             {
                 return result;
             }

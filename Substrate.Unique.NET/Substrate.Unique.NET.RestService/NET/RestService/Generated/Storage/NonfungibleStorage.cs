@@ -60,7 +60,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// 
         ///  Currently unused.
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40 GetTokenAuxProperties(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT50 GetTokenAuxProperties(string key);
         
         /// <summary>
         /// >> Owned
@@ -122,7 +122,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _tokenAuxPropertiesTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40> _tokenAuxPropertiesTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT50> _tokenAuxPropertiesTypedStorage;
         
         /// <summary>
         /// _ownedTypedStorage typed storage field
@@ -158,7 +158,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             this.TokensBurntTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Primitive.U32>("Nonfungible.TokensBurnt", storageDataProvider, storageChangeDelegates);
             this.TokenDataTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_nonfungible.ItemData>("Nonfungible.TokenData", storageDataProvider, storageChangeDelegates);
             this.TokenPropertiesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.PropertiesT2>("Nonfungible.TokenProperties", storageDataProvider, storageChangeDelegates);
-            this.TokenAuxPropertiesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40>("Nonfungible.TokenAuxProperties", storageDataProvider, storageChangeDelegates);
+            this.TokenAuxPropertiesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT50>("Nonfungible.TokenAuxProperties", storageDataProvider, storageChangeDelegates);
             this.OwnedTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Primitive.Bool>("Nonfungible.Owned", storageDataProvider, storageChangeDelegates);
             this.TokenChildrenTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Primitive.Bool>("Nonfungible.TokenChildren", storageDataProvider, storageChangeDelegates);
             this.AccountBalanceTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Primitive.U32>("Nonfungible.AccountBalance", storageDataProvider, storageChangeDelegates);
@@ -229,7 +229,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _tokenAuxPropertiesTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40> TokenAuxPropertiesTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT50> TokenAuxPropertiesTypedStorage
         {
             get
             {
@@ -470,13 +470,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// 
         ///  Currently unused.
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40 GetTokenAuxProperties(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT50 GetTokenAuxProperties(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (TokenAuxPropertiesTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT40 result))
+            if (TokenAuxPropertiesTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT50 result))
             {
                 return result;
             }

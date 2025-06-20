@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_state_trie_migra
     
     
     /// <summary>
-    /// >> 90 - Composite[pallet_state_trie_migration.pallet.MigrationTask]
+    /// >> 99 - Composite[pallet_state_trie_migration.pallet.MigrationTask]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class MigrationTask : BaseType
@@ -80,7 +80,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_state_trie_migra
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

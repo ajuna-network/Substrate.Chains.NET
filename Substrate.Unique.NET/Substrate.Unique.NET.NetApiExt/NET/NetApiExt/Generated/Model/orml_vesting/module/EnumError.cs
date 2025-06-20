@@ -60,7 +60,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.orml_vesting.module
     }
     
     /// <summary>
-    /// >> 455 - Variant[orml_vesting.module.Error]
+    /// >> 524 - Variant[orml_vesting.module.Error]
     /// The `Error` enum of this pallet.
     /// </summary>
     public sealed class EnumError : BaseEnum<Error>

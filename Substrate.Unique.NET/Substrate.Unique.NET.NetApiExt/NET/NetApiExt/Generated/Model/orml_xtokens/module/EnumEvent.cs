@@ -23,17 +23,25 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.orml_xtokens.module
     {
         
         /// <summary>
-        /// >> TransferredMultiAssets
-        /// Transferred `MultiAsset` with fee.
+        /// >> TransferredAssets
+        /// Transferred `Asset` with fee.
         /// </summary>
-        TransferredMultiAssets = 0,
+        TransferredAssets = 0,
     }
     
     /// <summary>
-    /// >> 46 - Variant[orml_xtokens.module.Event]
+    /// >> 48 - Variant[orml_xtokens.module.Event]
     /// The `Event` enum of this pallet
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.MultiAssets, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.MultiAsset, Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v3.multilocation.MultiLocation>>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.Assets, Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.Asset, Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.location.Location>>(Event.TransferredAssets);
+        }
     }
 }

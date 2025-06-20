@@ -24,52 +24,85 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_membership.palle
         
         /// <summary>
         /// >> add_member
-        /// See [`Pallet::add_member`].
+        /// Add a member `who` to the set.
+        /// 
+        /// May only be called from `T::AddOrigin`.
         /// </summary>
         add_member = 0,
         
         /// <summary>
         /// >> remove_member
-        /// See [`Pallet::remove_member`].
+        /// Remove a member `who` from the set.
+        /// 
+        /// May only be called from `T::RemoveOrigin`.
         /// </summary>
         remove_member = 1,
         
         /// <summary>
         /// >> swap_member
-        /// See [`Pallet::swap_member`].
+        /// Swap out one member `remove` for another `add`.
+        /// 
+        /// May only be called from `T::SwapOrigin`.
+        /// 
+        /// Prime membership is *not* passed from `remove` to `add`, if extant.
         /// </summary>
         swap_member = 2,
         
         /// <summary>
         /// >> reset_members
-        /// See [`Pallet::reset_members`].
+        /// Change the membership to a new set, disregarding the existing membership. Be nice and
+        /// pass `members` pre-sorted.
+        /// 
+        /// May only be called from `T::ResetOrigin`.
         /// </summary>
         reset_members = 3,
         
         /// <summary>
         /// >> change_key
-        /// See [`Pallet::change_key`].
+        /// Swap out the sending member for some other key `new`.
+        /// 
+        /// May only be called from `Signed` origin of a current member.
+        /// 
+        /// Prime membership is passed from the origin account to `new`, if extant.
         /// </summary>
         change_key = 4,
         
         /// <summary>
         /// >> set_prime
-        /// See [`Pallet::set_prime`].
+        /// Set the prime member. Must be a current member.
+        /// 
+        /// May only be called from `T::PrimeOrigin`.
         /// </summary>
         set_prime = 5,
         
         /// <summary>
         /// >> clear_prime
-        /// See [`Pallet::clear_prime`].
+        /// Remove the prime member if it exists.
+        /// 
+        /// May only be called from `T::PrimeOrigin`.
         /// </summary>
         clear_prime = 6,
     }
     
     /// <summary>
-    /// >> 197 - Variant[pallet_membership.pallet.Call]
+    /// >> 242 - Variant[pallet_membership.pallet.Call]
     /// Contains a variant per dispatchable extrinsic that this pallet has.
     /// </summary>
-    public sealed class EnumCall : BaseEnumExt<Call, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress>, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress, BaseVoid>
+    public sealed class EnumCall : BaseEnumRust<Call>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumCall()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress>(Call.add_member);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress>(Call.remove_member);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress>>(Call.swap_member);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>>(Call.reset_members);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress>(Call.change_key);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.multiaddress.EnumMultiAddress>(Call.set_prime);
+				AddTypeDecoder<BaseVoid>(Call.clear_prime);
+        }
     }
 }

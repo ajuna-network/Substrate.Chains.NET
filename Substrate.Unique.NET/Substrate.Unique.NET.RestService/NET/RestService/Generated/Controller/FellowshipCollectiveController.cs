@@ -103,7 +103,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         /// >> VotingCleanup
         /// </summary>
         [HttpGet("VotingCleanup")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT34), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT39), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.FellowshipCollectiveStorage), "VotingCleanupParams", typeof(Substrate.NetApi.Model.Types.Primitive.U32))]
         public IActionResult GetVotingCleanup(string key)
         {

@@ -34,7 +34,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_maintenance.pall
     }
     
     /// <summary>
-    /// >> 377 - Variant[pallet_maintenance.pallet.Event]
+    /// >> 444 - Variant[pallet_maintenance.pallet.Event]
     /// The `Event` enum of this pallet
     /// </summary>
     public sealed class EnumEvent : BaseEnum<Event>

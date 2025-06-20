@@ -24,16 +24,24 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm_contract_hel
         
         /// <summary>
         /// >> migrate_from_self_sponsoring
-        /// See [`Pallet::migrate_from_self_sponsoring`].
+        /// Migrate contract to use `SponsoringMode` storage instead of `SelfSponsoring`
         /// </summary>
         migrate_from_self_sponsoring = 0,
     }
     
     /// <summary>
-    /// >> 342 - Variant[pallet_evm_contract_helpers.pallet.Call]
+    /// >> 403 - Variant[pallet_evm_contract_helpers.pallet.Call]
     /// Contains a variant per dispatchable extrinsic that this pallet has.
     /// </summary>
-    public sealed class EnumCall : BaseEnumExt<Call, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>>
+    public sealed class EnumCall : BaseEnumRust<Call>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumCall()
+        {
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>>(Call.migrate_from_self_sponsoring);
+        }
     }
 }

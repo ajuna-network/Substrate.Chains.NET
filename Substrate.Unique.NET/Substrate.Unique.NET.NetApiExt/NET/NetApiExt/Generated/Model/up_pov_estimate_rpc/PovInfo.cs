@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_pov_estimate_rpc
     
     
     /// <summary>
-    /// >> 595 - Composite[up_pov_estimate_rpc.PovInfo]
+    /// >> 676 - Composite[up_pov_estimate_rpc.PovInfo]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class PovInfo : BaseType
@@ -80,7 +80,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_pov_estimate_rpc
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

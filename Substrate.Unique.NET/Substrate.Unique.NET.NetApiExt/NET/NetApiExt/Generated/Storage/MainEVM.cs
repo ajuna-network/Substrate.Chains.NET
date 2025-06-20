@@ -43,6 +43,8 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
             _client.StorageKeyDict.Add(new System.Tuple<string, string>("EVM", "AccountStorages"), new System.Tuple<Substrate.NetApi.Model.Meta.Storage.Hasher[], System.Type, System.Type>(new Substrate.NetApi.Model.Meta.Storage.Hasher[] {
                             Substrate.NetApi.Model.Meta.Storage.Hasher.BlakeTwo128Concat,
                             Substrate.NetApi.Model.Meta.Storage.Hasher.BlakeTwo128Concat}, typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>), typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256)));
+            _client.StorageKeyDict.Add(new System.Tuple<string, string>("EVM", "Suicided"), new System.Tuple<Substrate.NetApi.Model.Meta.Storage.Hasher[], System.Type, System.Type>(new Substrate.NetApi.Model.Meta.Storage.Hasher[] {
+                            Substrate.NetApi.Model.Meta.Storage.Hasher.BlakeTwo128Concat}, typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160), typeof(Substrate.NetApi.Model.Types.Base.BaseTuple)));
             _client.StorageKeyDict.Add(new System.Tuple<string, string>("EVM", "CurrentLogs"), new System.Tuple<Substrate.NetApi.Model.Meta.Storage.Hasher[], System.Type, System.Type>(null, null, typeof(Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.log.Log>)));
         }
         
@@ -130,6 +132,35 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
         {
             string parameters = EVMStorage.AccountStoragesParams(key);
             var result = await _client.GetStorageAsync<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>(parameters, blockhash, token);
+            return result;
+        }
+        
+        /// <summary>
+        /// >> SuicidedParams
+        /// </summary>
+        public static string SuicidedParams(Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160 key)
+        {
+            return RequestGenerator.GetStorage("EVM", "Suicided", Substrate.NetApi.Model.Meta.Storage.Type.Map, new Substrate.NetApi.Model.Meta.Storage.Hasher[] {
+                        Substrate.NetApi.Model.Meta.Storage.Hasher.BlakeTwo128Concat}, new Substrate.NetApi.Model.Types.IType[] {
+                        key});
+        }
+        
+        /// <summary>
+        /// >> SuicidedDefault
+        /// Default value as hex string
+        /// </summary>
+        public static string SuicidedDefault()
+        {
+            return "0x00";
+        }
+        
+        /// <summary>
+        /// >> Suicided
+        /// </summary>
+        public async Task<Substrate.NetApi.Model.Types.Base.BaseTuple> Suicided(Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160 key, string blockhash, CancellationToken token)
+        {
+            string parameters = EVMStorage.SuicidedParams(key);
+            var result = await _client.GetStorageAsync<Substrate.NetApi.Model.Types.Base.BaseTuple>(parameters, blockhash, token);
             return result;
         }
         
@@ -302,10 +333,16 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
         GasLimitTooHigh,
         
         /// <summary>
-        /// >> Undefined
-        /// Undefined error.
+        /// >> InvalidChainId
+        /// The chain id is invalid.
         /// </summary>
-        Undefined,
+        InvalidChainId,
+        
+        /// <summary>
+        /// >> InvalidSignature
+        /// the signature is invalid.
+        /// </summary>
+        InvalidSignature,
         
         /// <summary>
         /// >> Reentrancy
@@ -318,5 +355,11 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
         /// EIP-3607,
         /// </summary>
         TransactionMustComeFromEOA,
+        
+        /// <summary>
+        /// >> Undefined
+        /// Undefined error.
+        /// </summary>
+        Undefined,
     }
 }

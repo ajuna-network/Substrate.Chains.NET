@@ -33,9 +33,18 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.transaction_
     }
     
     /// <summary>
-    /// >> 598 - Variant[sp_runtime.transaction_validity.TransactionValidityError]
+    /// >> 679 - Variant[sp_runtime.transaction_validity.TransactionValidityError]
     /// </summary>
-    public sealed class EnumTransactionValidityError : BaseEnumExt<TransactionValidityError, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.transaction_validity.EnumInvalidTransaction, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.transaction_validity.EnumUnknownTransaction>
+    public sealed class EnumTransactionValidityError : BaseEnumRust<TransactionValidityError>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumTransactionValidityError()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.transaction_validity.EnumInvalidTransaction>(TransactionValidityError.Invalid);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.transaction_validity.EnumUnknownTransaction>(TransactionValidityError.Unknown);
+        }
     }
 }

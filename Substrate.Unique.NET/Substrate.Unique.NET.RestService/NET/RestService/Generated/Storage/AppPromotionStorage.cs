@@ -63,7 +63,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         ///  * **Key** - Staker account.
         ///  * **Value** - Amount of stakes.
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT41 GetPendingUnstake(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT51 GetPendingUnstake(string key);
         
         /// <summary>
         /// >> PreviousCalculatedRecord
@@ -102,7 +102,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _pendingUnstakeTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT41> _pendingUnstakeTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT51> _pendingUnstakeTypedStorage;
         
         /// <summary>
         /// _previousCalculatedRecordTypedStorage typed storage field
@@ -118,7 +118,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             this.AdminTypedStorage = new TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>("AppPromotion.Admin", storageDataProvider, storageChangeDelegates);
             this.StakedTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U128, Substrate.NetApi.Model.Types.Primitive.U32>>("AppPromotion.Staked", storageDataProvider, storageChangeDelegates);
             this.StakesPerAccountTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Primitive.U8>("AppPromotion.StakesPerAccount", storageDataProvider, storageChangeDelegates);
-            this.PendingUnstakeTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT41>("AppPromotion.PendingUnstake", storageDataProvider, storageChangeDelegates);
+            this.PendingUnstakeTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT51>("AppPromotion.PendingUnstake", storageDataProvider, storageChangeDelegates);
             this.PreviousCalculatedRecordTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.NetApi.Model.Types.Primitive.U32>>("AppPromotion.PreviousCalculatedRecord", storageDataProvider, storageChangeDelegates);
         }
         
@@ -185,7 +185,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _pendingUnstakeTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT41> PendingUnstakeTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT51> PendingUnstakeTypedStorage
         {
             get
             {
@@ -343,13 +343,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         ///  * **Key** - Staker account.
         ///  * **Value** - Amount of stakes.
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT41 GetPendingUnstake(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT51 GetPendingUnstake(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (PendingUnstakeTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT41 result))
+            if (PendingUnstakeTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT51 result))
             {
                 return result;
             }

@@ -33,7 +33,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_state_trie_migra
     }
     
     /// <summary>
-    /// >> 31 - Variant[pallet_state_trie_migration.pallet.MigrationCompute]
+    /// >> 33 - Variant[pallet_state_trie_migration.pallet.MigrationCompute]
     /// </summary>
     public sealed class EnumMigrationCompute : BaseEnum<MigrationCompute>
     {

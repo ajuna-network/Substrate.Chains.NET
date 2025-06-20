@@ -57,13 +57,33 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.frame_system.pallet
         /// On on-chain remark happened.
         /// </summary>
         Remarked = 5,
+        
+        /// <summary>
+        /// >> UpgradeAuthorized
+        /// An upgrade was authorized.
+        /// </summary>
+        UpgradeAuthorized = 6,
     }
     
     /// <summary>
-    /// >> 21 - Variant[frame_system.pallet.Event]
+    /// >> 22 - Variant[frame_system.pallet.Event]
     /// Event for the System pallet.
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.dispatch.DispatchInfo, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.EnumDispatchError, Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.dispatch.DispatchInfo>, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.frame_system.DispatchEventInfo>(Event.ExtrinsicSuccess);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.EnumDispatchError, Substrate.Unique.NET.NetApiExt.Generated.Model.frame_system.DispatchEventInfo>>(Event.ExtrinsicFailed);
+				AddTypeDecoder<BaseVoid>(Event.CodeUpdated);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>(Event.NewAccount);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>(Event.KilledAccount);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>>(Event.Remarked);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256, Substrate.NetApi.Model.Types.Primitive.Bool>>(Event.UpgradeAuthorized);
+        }
     }
 }

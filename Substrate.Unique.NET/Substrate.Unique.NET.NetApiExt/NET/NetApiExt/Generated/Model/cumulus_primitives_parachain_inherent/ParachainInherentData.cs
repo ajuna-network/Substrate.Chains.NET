@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_primitives_para
     
     
     /// <summary>
-    /// >> 94 - Composite[cumulus_primitives_parachain_inherent.ParachainInherentData]
+    /// >> 103 - Composite[cumulus_primitives_parachain_inherent.ParachainInherentData]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class ParachainInherentData : BaseType
@@ -27,7 +27,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_primitives_para
         /// <summary>
         /// >> validation_data
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v6.PersistedValidationData ValidationData { get; set; }
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v8.PersistedValidationData ValidationData { get; set; }
         /// <summary>
         /// >> relay_chain_state
         /// </summary>
@@ -62,7 +62,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_primitives_para
         public override void Decode(byte[] byteArray, ref int p)
         {
             var start = p;
-            ValidationData = new Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v6.PersistedValidationData();
+            ValidationData = new Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v8.PersistedValidationData();
             ValidationData.Decode(byteArray, ref p);
             RelayChainState = new Substrate.Unique.NET.NetApiExt.Generated.Model.sp_trie.storage_proof.StorageProof();
             RelayChainState.Decode(byteArray, ref p);
@@ -73,7 +73,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_primitives_para
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

@@ -42,7 +42,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         ///  The hashes of the active proposals.
         /// </summary>
         [HttpGet("Proposals")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT30), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT35), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.CouncilStorage), "ProposalsParams")]
         public IActionResult GetProposals()
         {
@@ -59,6 +59,21 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         public IActionResult GetProposalOf(string key)
         {
             return this.Ok(_councilStorage.GetProposalOf(key));
+        }
+        
+        /// <summary>
+        /// >> CostOf
+        ///  Consideration cost created for publishing and storing a proposal.
+        /// 
+        ///  Determined by [Config::Consideration] and may be not present for certain proposals (e.g. if
+        ///  the proposal count at the time of creation was below threshold N).
+        /// </summary>
+        [HttpGet("CostOf")]
+        [ProducesResponseType(typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.traits.tokens.fungible.HoldConsiderationT2>), 200)]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.CouncilStorage), "CostOfParams", typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256))]
+        public IActionResult GetCostOf(string key)
+        {
+            return this.Ok(_councilStorage.GetCostOf(key));
         }
         
         /// <summary>
@@ -99,7 +114,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         
         /// <summary>
         /// >> Prime
-        ///  The prime member that helps determine the default vote behavior in case of absentations.
+        ///  The prime member that helps determine the default vote behavior in case of abstentions.
         /// </summary>
         [HttpGet("Prime")]
         [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32), 200)]
