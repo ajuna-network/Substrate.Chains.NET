@@ -101,7 +101,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         ///  * **Value** - Amount of stakes.
         /// </summary>
         [HttpGet("PendingUnstake")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT41), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT51), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.AppPromotionStorage), "PendingUnstakeParams", typeof(Substrate.NetApi.Model.Types.Primitive.U32))]
         public IActionResult GetPendingUnstake(string key)
         {

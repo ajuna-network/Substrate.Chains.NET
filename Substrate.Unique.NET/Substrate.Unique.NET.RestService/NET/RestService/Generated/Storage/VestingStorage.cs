@@ -30,7 +30,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// 
         ///  VestingSchedules: map AccountId => Vec<VestingSchedule>
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT23 GetVestingSchedules(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28 GetVestingSchedules(string key);
     }
     
     /// <summary>
@@ -42,20 +42,20 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _vestingSchedulesTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT23> _vestingSchedulesTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28> _vestingSchedulesTypedStorage;
         
         /// <summary>
         /// VestingStorage constructor.
         /// </summary>
         public VestingStorage(IStorageDataProvider storageDataProvider, List<IStorageChangeDelegate> storageChangeDelegates)
         {
-            this.VestingSchedulesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT23>("Vesting.VestingSchedules", storageDataProvider, storageChangeDelegates);
+            this.VestingSchedulesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28>("Vesting.VestingSchedules", storageDataProvider, storageChangeDelegates);
         }
         
         /// <summary>
         /// _vestingSchedulesTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT23> VestingSchedulesTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28> VestingSchedulesTypedStorage
         {
             get
             {
@@ -90,13 +90,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// 
         ///  VestingSchedules: map AccountId => Vec<VestingSchedule>
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT23 GetVestingSchedules(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28 GetVestingSchedules(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (VestingSchedulesTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT23 result))
+            if (VestingSchedulesTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28 result))
             {
                 return result;
             }

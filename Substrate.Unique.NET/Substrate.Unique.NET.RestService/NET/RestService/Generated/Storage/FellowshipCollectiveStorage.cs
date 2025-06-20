@@ -59,7 +59,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// >> VotingCleanup
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT34 GetVotingCleanup(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT39 GetVotingCleanup(string key);
     }
     
     /// <summary>
@@ -96,7 +96,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _votingCleanupTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT34> _votingCleanupTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT39> _votingCleanupTypedStorage;
         
         /// <summary>
         /// FellowshipCollectiveStorage constructor.
@@ -108,7 +108,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             this.IdToIndexTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Primitive.U32>("FellowshipCollective.IdToIndex", storageDataProvider, storageChangeDelegates);
             this.IndexToIdTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>("FellowshipCollective.IndexToId", storageDataProvider, storageChangeDelegates);
             this.VotingTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_ranked_collective.EnumVoteRecord>("FellowshipCollective.Voting", storageDataProvider, storageChangeDelegates);
-            this.VotingCleanupTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT34>("FellowshipCollective.VotingCleanup", storageDataProvider, storageChangeDelegates);
+            this.VotingCleanupTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT39>("FellowshipCollective.VotingCleanup", storageDataProvider, storageChangeDelegates);
         }
         
         /// <summary>
@@ -189,7 +189,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _votingCleanupTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT34> VotingCleanupTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT39> VotingCleanupTypedStorage
         {
             get
             {
@@ -373,13 +373,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// >> VotingCleanup
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT34 GetVotingCleanup(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT39 GetVotingCleanup(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (VotingCleanupTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT34 result))
+            if (VotingCleanupTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT39 result))
             {
                 return result;
             }

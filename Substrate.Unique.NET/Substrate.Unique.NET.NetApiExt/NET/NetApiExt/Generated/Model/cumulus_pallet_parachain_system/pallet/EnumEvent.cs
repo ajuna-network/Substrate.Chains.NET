@@ -41,35 +41,42 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_parachai
         ValidationFunctionDiscarded = 2,
         
         /// <summary>
-        /// >> UpgradeAuthorized
-        /// An upgrade has been authorized.
-        /// </summary>
-        UpgradeAuthorized = 3,
-        
-        /// <summary>
         /// >> DownwardMessagesReceived
         /// Some downward messages have been received and will be processed.
         /// </summary>
-        DownwardMessagesReceived = 4,
+        DownwardMessagesReceived = 3,
         
         /// <summary>
         /// >> DownwardMessagesProcessed
         /// Downward messages were processed using the given weight.
         /// </summary>
-        DownwardMessagesProcessed = 5,
+        DownwardMessagesProcessed = 4,
         
         /// <summary>
         /// >> UpwardMessageSent
         /// An upward message was sent to the relay chain.
         /// </summary>
-        UpwardMessageSent = 6,
+        UpwardMessageSent = 5,
     }
     
     /// <summary>
-    /// >> 33 - Variant[cumulus_pallet_parachain_system.pallet.Event]
+    /// >> 35 - Variant[cumulus_pallet_parachain_system.pallet.Event]
     /// The `Event` enum of this pallet
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, BaseVoid, Substrate.NetApi.Model.Types.Primitive.U32, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256, Substrate.NetApi.Model.Types.Primitive.U32, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>, Substrate.NetApi.Model.Types.Base.BaseOpt<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8>>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<BaseVoid>(Event.ValidationFunctionStored);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(Event.ValidationFunctionApplied);
+				AddTypeDecoder<BaseVoid>(Event.ValidationFunctionDiscarded);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(Event.DownwardMessagesReceived);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>>(Event.DownwardMessagesProcessed);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Base.BaseOpt<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8>>(Event.UpwardMessageSent);
+        }
     }
 }

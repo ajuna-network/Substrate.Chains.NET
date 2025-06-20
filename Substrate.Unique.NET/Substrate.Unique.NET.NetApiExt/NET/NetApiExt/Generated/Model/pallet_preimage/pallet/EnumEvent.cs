@@ -42,10 +42,20 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_preimage.pallet
     }
     
     /// <summary>
-    /// >> 65 - Variant[pallet_preimage.pallet.Event]
+    /// >> 75 - Variant[pallet_preimage.pallet.Event]
     /// The `Event` enum of this pallet
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>(Event.Noted);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>(Event.Requested);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>(Event.Cleared);
+        }
     }
 }

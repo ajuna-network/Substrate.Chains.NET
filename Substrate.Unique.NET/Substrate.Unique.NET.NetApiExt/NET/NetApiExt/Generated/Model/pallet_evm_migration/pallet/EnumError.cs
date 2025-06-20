@@ -42,7 +42,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm_migration.pa
     }
     
     /// <summary>
-    /// >> 654 - Variant[pallet_evm_migration.pallet.Error]
+    /// >> 735 - Variant[pallet_evm_migration.pallet.Error]
     /// The `Error` enum of this pallet.
     /// </summary>
     public sealed class EnumError : BaseEnum<Error>

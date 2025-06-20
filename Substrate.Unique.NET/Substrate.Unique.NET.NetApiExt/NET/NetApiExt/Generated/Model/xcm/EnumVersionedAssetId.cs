@@ -25,12 +25,32 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.xcm
         /// >> V3
         /// </summary>
         V3 = 3,
+        
+        /// <summary>
+        /// >> V4
+        /// </summary>
+        V4 = 4,
+        
+        /// <summary>
+        /// >> V5
+        /// </summary>
+        V5 = 5,
     }
     
     /// <summary>
-    /// >> 324 - Variant[xcm.VersionedAssetId]
+    /// >> 315 - Variant[xcm.VersionedAssetId]
     /// </summary>
-    public sealed class EnumVersionedAssetId : BaseEnumExt<VersionedAssetId, BaseVoid, BaseVoid, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetId>
+    public sealed class EnumVersionedAssetId : BaseEnumRust<VersionedAssetId>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumVersionedAssetId()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetId>(VersionedAssetId.V3);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v4.asset.AssetId>(VersionedAssetId.V4);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.AssetId>(VersionedAssetId.V5);
+        }
     }
 }

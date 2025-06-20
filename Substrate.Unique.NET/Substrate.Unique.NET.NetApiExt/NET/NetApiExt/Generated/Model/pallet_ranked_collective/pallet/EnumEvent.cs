@@ -46,13 +46,31 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_ranked_collectiv
         /// `tally`.
         /// </summary>
         Voted = 3,
+        
+        /// <summary>
+        /// >> MemberExchanged
+        /// The member `who` had their `AccountId` changed to `new_who`.
+        /// </summary>
+        MemberExchanged = 4,
     }
     
     /// <summary>
-    /// >> 76 - Variant[pallet_ranked_collective.pallet.Event]
+    /// >> 85 - Variant[pallet_ranked_collective.pallet.Event]
     /// The `Event` enum of this pallet
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.NetApi.Model.Types.Primitive.U16>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.NetApi.Model.Types.Primitive.U16>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_ranked_collective.EnumVoteRecord, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_ranked_collective.Tally>>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>(Event.MemberAdded);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.NetApi.Model.Types.Primitive.U16>>(Event.RankChanged);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.NetApi.Model.Types.Primitive.U16>>(Event.MemberRemoved);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_ranked_collective.EnumVoteRecord, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_ranked_collective.Tally>>(Event.Voted);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>>(Event.MemberExchanged);
+        }
     }
 }

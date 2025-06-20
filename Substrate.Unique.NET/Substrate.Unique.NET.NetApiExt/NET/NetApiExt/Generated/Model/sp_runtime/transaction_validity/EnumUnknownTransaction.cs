@@ -38,9 +38,19 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.transaction_
     }
     
     /// <summary>
-    /// >> 600 - Variant[sp_runtime.transaction_validity.UnknownTransaction]
+    /// >> 681 - Variant[sp_runtime.transaction_validity.UnknownTransaction]
     /// </summary>
-    public sealed class EnumUnknownTransaction : BaseEnumExt<UnknownTransaction, BaseVoid, BaseVoid, Substrate.NetApi.Model.Types.Primitive.U8>
+    public sealed class EnumUnknownTransaction : BaseEnumRust<UnknownTransaction>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumUnknownTransaction()
+        {
+				AddTypeDecoder<BaseVoid>(UnknownTransaction.CannotLookup);
+				AddTypeDecoder<BaseVoid>(UnknownTransaction.NoUnsignedValidator);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U8>(UnknownTransaction.Custom);
+        }
     }
 }

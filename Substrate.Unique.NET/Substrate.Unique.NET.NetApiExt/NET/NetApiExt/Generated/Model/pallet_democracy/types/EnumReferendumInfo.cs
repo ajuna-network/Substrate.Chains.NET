@@ -33,9 +33,18 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types
     }
     
     /// <summary>
-    /// >> 479 - Variant[pallet_democracy.types.ReferendumInfo]
+    /// >> 548 - Variant[pallet_democracy.types.ReferendumInfo]
     /// </summary>
-    public sealed class EnumReferendumInfo : BaseEnumExt<ReferendumInfo, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types.ReferendumStatus, BaseTuple<Substrate.NetApi.Model.Types.Primitive.Bool, Substrate.NetApi.Model.Types.Primitive.U32>>
+    public sealed class EnumReferendumInfo : BaseEnumRust<ReferendumInfo>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumReferendumInfo()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types.ReferendumStatus>(ReferendumInfo.Ongoing);
+				AddTypeDecoder<BaseTuple<Substrate.NetApi.Model.Types.Primitive.Bool, Substrate.NetApi.Model.Types.Primitive.U32>>(ReferendumInfo.Finished);
+        }
     }
 }

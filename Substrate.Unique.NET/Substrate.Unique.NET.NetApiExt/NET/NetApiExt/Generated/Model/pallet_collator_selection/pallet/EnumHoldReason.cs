@@ -28,7 +28,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collator_selecti
     }
     
     /// <summary>
-    /// >> 438 - Variant[pallet_collator_selection.pallet.HoldReason]
+    /// >> 504 - Variant[pallet_collator_selection.pallet.HoldReason]
     /// </summary>
     public sealed class EnumHoldReason : BaseEnum<HoldReason>
     {

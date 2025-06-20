@@ -27,13 +27,34 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_foreign_assets.m
         /// The foreign asset registered.
         /// </summary>
         ForeignAssetRegistered = 0,
+        
+        /// <summary>
+        /// >> MigrationStatus
+        /// The migration status.
+        /// </summary>
+        MigrationStatus = 1,
+        
+        /// <summary>
+        /// >> ForeignAssetMoved
+        /// </summary>
+        ForeignAssetMoved = 2,
     }
     
     /// <summary>
-    /// >> 364 - Variant[pallet_foreign_assets.module.Event]
+    /// >> 429 - Variant[pallet_foreign_assets.module.Event]
     /// The `Event` enum of this pallet
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedAssetId>>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedAssetId>>(Event.ForeignAssetRegistered);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_foreign_assets.EnumMigrationStatus>(Event.MigrationStatus);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedAssetId, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedAssetId>>(Event.ForeignAssetMoved);
+        }
     }
 }

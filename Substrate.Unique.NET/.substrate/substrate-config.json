@@ -1,11 +1,12 @@
 {
   "projects": {
     "net_api": "Substrate.Unique.NET.NetApiExt",
+    "net_integration": "Substrate.Unique.NET.Integration",
     "rest_service": "Substrate.Unique.NET.RestService",
     "rest_client": "Substrate.Unique.NET.RestClient"
   },
    "metadata": {
-      "websocket": "wss://unique-rpc.dwellir.com"
+      "websocket": "wss://unique.ibp.network"
    },
   "rest_client_settings": {
     "service_assembly": "Substrate.Unique.NET.RestService.dll"

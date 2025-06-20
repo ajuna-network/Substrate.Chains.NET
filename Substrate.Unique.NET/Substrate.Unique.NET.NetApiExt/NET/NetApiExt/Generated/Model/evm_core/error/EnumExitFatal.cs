@@ -43,9 +43,20 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error
     }
     
     /// <summary>
-    /// >> 374 - Variant[evm_core.error.ExitFatal]
+    /// >> 441 - Variant[evm_core.error.ExitFatal]
     /// </summary>
-    public sealed class EnumExitFatal : BaseEnumExt<ExitFatal, BaseVoid, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error.EnumExitError, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.CowT1>
+    public sealed class EnumExitFatal : BaseEnumRust<ExitFatal>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumExitFatal()
+        {
+				AddTypeDecoder<BaseVoid>(ExitFatal.NotSupported);
+				AddTypeDecoder<BaseVoid>(ExitFatal.UnhandledInterrupt);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.evm_core.error.EnumExitError>(ExitFatal.CallErrorAsFatal);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.CowT1>(ExitFatal.Other);
+        }
     }
 }

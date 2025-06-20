@@ -30,10 +30,18 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_structure.pallet
     }
     
     /// <summary>
-    /// >> 362 - Variant[pallet_structure.pallet.Event]
+    /// >> 427 - Variant[pallet_structure.pallet.Event]
     /// The `Event` enum of this pallet
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.EnumResult>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.EnumResult>(Event.Executed);
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.staging_parachain_info.
     }
     
     /// <summary>
-    /// >> 107 - Variant[staging_parachain_info.pallet.Call]
+    /// >> 116 - Variant[staging_parachain_info.pallet.Call]
     /// Contains a variant per dispatchable extrinsic that this pallet has.
     /// </summary>
     public sealed class EnumCall : BaseEnum<Call>

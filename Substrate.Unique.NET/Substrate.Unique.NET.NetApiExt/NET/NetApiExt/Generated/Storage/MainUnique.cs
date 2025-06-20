@@ -356,7 +356,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
         /// >> create_collection
         /// Type alias to Pallet, to be used by construct_runtime.
         /// </summary>
-        public static Method CreateCollection(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT8 collection_name, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT9 collection_description, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT10 token_prefix, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.EnumCollectionMode mode)
+        public static Method CreateCollection(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT13 collection_name, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT14 collection_description, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT15 token_prefix, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.EnumCollectionMode mode)
         {
             System.Collections.Generic.List<byte> byteArray = new List<byte>();
             byteArray.AddRange(collection_name.Encode());
@@ -524,7 +524,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
         /// >> delete_collection_properties
         /// Type alias to Pallet, to be used by construct_runtime.
         /// </summary>
-        public static Method DeleteCollectionProperties(Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId collection_id, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT12> property_keys)
+        public static Method DeleteCollectionProperties(Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId collection_id, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT17> property_keys)
         {
             System.Collections.Generic.List<byte> byteArray = new List<byte>();
             byteArray.AddRange(collection_id.Encode());
@@ -549,7 +549,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
         /// >> delete_token_properties
         /// Type alias to Pallet, to be used by construct_runtime.
         /// </summary>
-        public static Method DeleteTokenProperties(Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId collection_id, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId token_id, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT12> property_keys)
+        public static Method DeleteTokenProperties(Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId collection_id, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId token_id, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT17> property_keys)
         {
             System.Collections.Generic.List<byte> byteArray = new List<byte>();
             byteArray.AddRange(collection_id.Encode());

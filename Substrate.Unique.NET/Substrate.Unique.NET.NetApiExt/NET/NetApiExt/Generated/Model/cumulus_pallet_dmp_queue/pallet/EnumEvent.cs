@@ -23,53 +23,99 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_dmp_queu
     {
         
         /// <summary>
-        /// >> InvalidFormat
-        /// Downward message is invalid XCM.
+        /// >> StartedExport
+        /// The export of pages started.
         /// </summary>
-        InvalidFormat = 0,
+        StartedExport = 0,
         
         /// <summary>
-        /// >> UnsupportedVersion
-        /// Downward message is unsupported version of XCM.
+        /// >> Exported
+        /// The export of a page completed.
         /// </summary>
-        UnsupportedVersion = 1,
+        Exported = 1,
         
         /// <summary>
-        /// >> ExecutedDownward
-        /// Downward message executed with the given outcome.
+        /// >> ExportFailed
+        /// The export of a page failed.
+        /// 
+        /// This should never be emitted.
         /// </summary>
-        ExecutedDownward = 2,
+        ExportFailed = 2,
         
         /// <summary>
-        /// >> WeightExhausted
-        /// The weight limit for handling downward messages was reached.
+        /// >> CompletedExport
+        /// The export of pages completed.
         /// </summary>
-        WeightExhausted = 3,
+        CompletedExport = 3,
         
         /// <summary>
-        /// >> OverweightEnqueued
-        /// Downward message is overweight and was placed in the overweight queue.
+        /// >> StartedOverweightExport
+        /// The export of overweight messages started.
         /// </summary>
-        OverweightEnqueued = 4,
+        StartedOverweightExport = 4,
         
         /// <summary>
-        /// >> OverweightServiced
-        /// Downward message from the overweight queue was executed.
+        /// >> ExportedOverweight
+        /// The export of an overweight message completed.
         /// </summary>
-        OverweightServiced = 5,
+        ExportedOverweight = 5,
         
         /// <summary>
-        /// >> MaxMessagesExhausted
-        /// The maximum number of downward messages was reached.
+        /// >> ExportOverweightFailed
+        /// The export of an overweight message failed.
+        /// 
+        /// This should never be emitted.
         /// </summary>
-        MaxMessagesExhausted = 6,
+        ExportOverweightFailed = 6,
+        
+        /// <summary>
+        /// >> CompletedOverweightExport
+        /// The export of overweight messages completed.
+        /// </summary>
+        CompletedOverweightExport = 7,
+        
+        /// <summary>
+        /// >> StartedCleanup
+        /// The cleanup of remaining pallet storage started.
+        /// </summary>
+        StartedCleanup = 8,
+        
+        /// <summary>
+        /// >> CleanedSome
+        /// Some debris was cleaned up.
+        /// </summary>
+        CleanedSome = 9,
+        
+        /// <summary>
+        /// >> Completed
+        /// The cleanup of remaining pallet storage completed.
+        /// </summary>
+        Completed = 10,
     }
     
     /// <summary>
-    /// >> 359 - Variant[cumulus_pallet_dmp_queue.pallet.Event]
+    /// >> 422 - Variant[cumulus_pallet_dmp_queue.pallet.Event]
     /// The `Event` enum of this pallet
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.traits.EnumOutcome>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8, Substrate.NetApi.Model.Types.Primitive.U64, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight>, BaseTuple<Substrate.NetApi.Model.Types.Primitive.U64, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_weights.weight_v2.Weight>, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<BaseVoid>(Event.StartedExport);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(Event.Exported);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(Event.ExportFailed);
+				AddTypeDecoder<BaseVoid>(Event.CompletedExport);
+				AddTypeDecoder<BaseVoid>(Event.StartedOverweightExport);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U64>(Event.ExportedOverweight);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U64>(Event.ExportOverweightFailed);
+				AddTypeDecoder<BaseVoid>(Event.CompletedOverweightExport);
+				AddTypeDecoder<BaseVoid>(Event.StartedCleanup);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(Event.CleanedSome);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.Bool>(Event.Completed);
+        }
     }
 }

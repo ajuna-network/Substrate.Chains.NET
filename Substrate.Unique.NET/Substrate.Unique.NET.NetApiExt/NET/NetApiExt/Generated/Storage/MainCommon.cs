@@ -53,8 +53,9 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
                             Substrate.NetApi.Model.Meta.Storage.Hasher.BlakeTwo128Concat,
                             Substrate.NetApi.Model.Meta.Storage.Hasher.BlakeTwo128Concat}, typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm.account.EnumBasicCrossAccountIdRepr>), typeof(Substrate.NetApi.Model.Types.Primitive.Bool)));
             _client.StorageKeyDict.Add(new System.Tuple<string, string>("Common", "DummyStorageValue"), new System.Tuple<Substrate.NetApi.Model.Meta.Storage.Hasher[], System.Type, System.Type>(null, null, typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionStats, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenChild, Substrate.Unique.NET.NetApiExt.Generated.Model.PhantomType.up_data_structs>)));
+
         }
-        
+
         /// <summary>
         /// >> CreatedCollectionCountParams
         ///  Storage of the count of created collections. Essentially contains the last collection ID.
@@ -316,7 +317,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Storage
         {
             return "0x00";
         }
-        
+
         /// <summary>
         /// >> DummyStorageValue
         ///  Not used by code, exists only to provide some types to metadata.

@@ -38,9 +38,19 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.transaction
     }
     
     /// <summary>
-    /// >> 333 - Variant[ethereum.transaction.TransactionV2]
+    /// >> 394 - Variant[ethereum.transaction.TransactionV2]
     /// </summary>
-    public sealed class EnumTransactionV2 : BaseEnumExt<TransactionV2, Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.transaction.LegacyTransaction, Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.transaction.EIP2930Transaction, Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.transaction.EIP1559Transaction>
+    public sealed class EnumTransactionV2 : BaseEnumRust<TransactionV2>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumTransactionV2()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.transaction.legacy.LegacyTransaction>(TransactionV2.Legacy);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.transaction.eip2930.EIP2930Transaction>(TransactionV2.EIP2930);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.transaction.eip1559.EIP1559Transaction>(TransactionV2.EIP1559);
+        }
     }
 }

@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs
     
     
     /// <summary>
-    /// >> 297 - Composite[up_data_structs.CreateReFungibleData]
+    /// >> 359 - Composite[up_data_structs.CreateReFungibleData]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class CreateReFungibleData : BaseType
@@ -31,7 +31,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs
         /// <summary>
         /// >> properties
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT13 Properties { get; set; }
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT18 Properties { get; set; }
         
         /// <inheritdoc/>
         public override string TypeName()
@@ -54,12 +54,12 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs
             var start = p;
             Pieces = new Substrate.NetApi.Model.Types.Primitive.U128();
             Pieces.Decode(byteArray, ref p);
-            Properties = new Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT13();
+            Properties = new Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT18();
             Properties.Decode(byteArray, ref p);
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

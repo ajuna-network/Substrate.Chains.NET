@@ -42,7 +42,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_unique.pallet
     }
     
     /// <summary>
-    /// >> 571 - Variant[pallet_unique.pallet.Error]
+    /// >> 652 - Variant[pallet_unique.pallet.Error]
     /// Errors for the common Unique transactions.
     /// </summary>
     public sealed class EnumError : BaseEnum<Error>

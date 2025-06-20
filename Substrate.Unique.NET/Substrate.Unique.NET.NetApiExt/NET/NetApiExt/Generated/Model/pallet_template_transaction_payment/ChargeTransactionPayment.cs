@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_template_transac
     
     
     /// <summary>
-    /// >> 674 - Composite[pallet_template_transaction_payment.ChargeTransactionPayment]
+    /// >> 752 - Composite[pallet_template_transaction_payment.ChargeTransactionPayment]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class ChargeTransactionPayment : BaseType
@@ -52,7 +52,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_template_transac
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

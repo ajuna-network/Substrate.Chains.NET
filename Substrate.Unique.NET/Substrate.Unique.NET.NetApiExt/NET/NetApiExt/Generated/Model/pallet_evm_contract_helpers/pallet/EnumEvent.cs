@@ -42,10 +42,20 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm_contract_hel
     }
     
     /// <summary>
-    /// >> 375 - Variant[pallet_evm_contract_helpers.pallet.Event]
+    /// >> 442 - Variant[pallet_evm_contract_helpers.pallet.Event]
     /// The `Event` enum of this pallet
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>>(Event.ContractSponsorSet);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>>(Event.ContractSponsorshipConfirmed);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>(Event.ContractSponsorRemoved);
+        }
     }
 }

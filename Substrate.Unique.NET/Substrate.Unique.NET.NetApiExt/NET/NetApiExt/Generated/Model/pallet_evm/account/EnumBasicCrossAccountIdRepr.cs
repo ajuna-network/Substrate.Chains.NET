@@ -33,9 +33,18 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm.account
     }
     
     /// <summary>
-    /// >> 266 - Variant[pallet_evm.account.BasicCrossAccountIdRepr]
+    /// >> 328 - Variant[pallet_evm.account.BasicCrossAccountIdRepr]
     /// </summary>
-    public sealed class EnumBasicCrossAccountIdRepr : BaseEnumExt<BasicCrossAccountIdRepr, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>
+    public sealed class EnumBasicCrossAccountIdRepr : BaseEnumRust<BasicCrossAccountIdRepr>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumBasicCrossAccountIdRepr()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>(BasicCrossAccountIdRepr.Substrate);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>(BasicCrossAccountIdRepr.Ethereum);
+        }
     }
 }

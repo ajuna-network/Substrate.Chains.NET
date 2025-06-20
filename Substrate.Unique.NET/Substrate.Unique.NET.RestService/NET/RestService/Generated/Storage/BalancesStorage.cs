@@ -69,26 +69,30 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> Locks
         ///  Any liquidity locks on some account balances.
         ///  NOTE: Should only be accessed when setting, changing and freeing a lock.
+        /// 
+        ///  Use of locks is deprecated in favour of freezes. See `https://github.com/paritytech/substrate/pull/12951/`
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2 GetLocks(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT1 GetLocks(string key);
         
         /// <summary>
         /// >> Reserves
         ///  Named reserves on some account balances.
+        /// 
+        ///  Use of reserves is deprecated in favour of holds. See `https://github.com/paritytech/substrate/pull/12951/`
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT19 GetReserves(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT24 GetReserves(string key);
         
         /// <summary>
         /// >> Holds
         ///  Holds on account balances.
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT20 GetHolds(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT25 GetHolds(string key);
         
         /// <summary>
         /// >> Freezes
         ///  Freeze locks on account balances.
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT21 GetFreezes(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26 GetFreezes(string key);
     }
     
     /// <summary>
@@ -115,22 +119,22 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _locksTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2> _locksTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT1> _locksTypedStorage;
         
         /// <summary>
         /// _reservesTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT19> _reservesTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT24> _reservesTypedStorage;
         
         /// <summary>
         /// _holdsTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT20> _holdsTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT25> _holdsTypedStorage;
         
         /// <summary>
         /// _freezesTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT21> _freezesTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26> _freezesTypedStorage;
         
         /// <summary>
         /// BalancesStorage constructor.
@@ -140,10 +144,10 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             this.TotalIssuanceTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U128>("Balances.TotalIssuance", storageDataProvider, storageChangeDelegates);
             this.InactiveIssuanceTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U128>("Balances.InactiveIssuance", storageDataProvider, storageChangeDelegates);
             this.AccountTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_balances.types.AccountData>("Balances.Account", storageDataProvider, storageChangeDelegates);
-            this.LocksTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2>("Balances.Locks", storageDataProvider, storageChangeDelegates);
-            this.ReservesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT19>("Balances.Reserves", storageDataProvider, storageChangeDelegates);
-            this.HoldsTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT20>("Balances.Holds", storageDataProvider, storageChangeDelegates);
-            this.FreezesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT21>("Balances.Freezes", storageDataProvider, storageChangeDelegates);
+            this.LocksTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT1>("Balances.Locks", storageDataProvider, storageChangeDelegates);
+            this.ReservesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT24>("Balances.Reserves", storageDataProvider, storageChangeDelegates);
+            this.HoldsTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT25>("Balances.Holds", storageDataProvider, storageChangeDelegates);
+            this.FreezesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26>("Balances.Freezes", storageDataProvider, storageChangeDelegates);
         }
         
         /// <summary>
@@ -194,7 +198,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _locksTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2> LocksTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT1> LocksTypedStorage
         {
             get
             {
@@ -209,7 +213,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _reservesTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT19> ReservesTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT24> ReservesTypedStorage
         {
             get
             {
@@ -224,7 +228,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _holdsTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT20> HoldsTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT25> HoldsTypedStorage
         {
             get
             {
@@ -239,7 +243,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _freezesTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT21> FreezesTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26> FreezesTypedStorage
         {
             get
             {
@@ -366,14 +370,16 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> Locks
         ///  Any liquidity locks on some account balances.
         ///  NOTE: Should only be accessed when setting, changing and freeing a lock.
+        /// 
+        ///  Use of locks is deprecated in favour of freezes. See `https://github.com/paritytech/substrate/pull/12951/`
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2 GetLocks(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT1 GetLocks(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (LocksTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2 result))
+            if (LocksTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT1 result))
             {
                 return result;
             }
@@ -395,14 +401,16 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// >> Reserves
         ///  Named reserves on some account balances.
+        /// 
+        ///  Use of reserves is deprecated in favour of holds. See `https://github.com/paritytech/substrate/pull/12951/`
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT19 GetReserves(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT24 GetReserves(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (ReservesTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT19 result))
+            if (ReservesTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT24 result))
             {
                 return result;
             }
@@ -425,13 +433,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> Holds
         ///  Holds on account balances.
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT20 GetHolds(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT25 GetHolds(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (HoldsTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT20 result))
+            if (HoldsTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT25 result))
             {
                 return result;
             }
@@ -454,13 +462,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> Freezes
         ///  Freeze locks on account balances.
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT21 GetFreezes(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26 GetFreezes(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (FreezesTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT21 result))
+            if (FreezesTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26 result))
             {
                 return result;
             }

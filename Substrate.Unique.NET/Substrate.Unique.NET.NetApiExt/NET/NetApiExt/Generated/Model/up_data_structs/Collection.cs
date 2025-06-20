@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs
     
     
     /// <summary>
-    /// >> 573 - Composite[up_data_structs.Collection]
+    /// >> 654 - Composite[up_data_structs.Collection]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class Collection : BaseType
@@ -35,15 +35,15 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs
         /// <summary>
         /// >> name
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT8 Name { get; set; }
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT13 Name { get; set; }
         /// <summary>
         /// >> description
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT9 Description { get; set; }
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT14 Description { get; set; }
         /// <summary>
         /// >> token_prefix
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT10 TokenPrefix { get; set; }
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT15 TokenPrefix { get; set; }
         /// <summary>
         /// >> sponsorship
         /// </summary>
@@ -91,11 +91,11 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs
             Owner.Decode(byteArray, ref p);
             Mode = new Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.EnumCollectionMode();
             Mode.Decode(byteArray, ref p);
-            Name = new Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT8();
+            Name = new Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT13();
             Name.Decode(byteArray, ref p);
-            Description = new Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT9();
+            Description = new Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT14();
             Description.Decode(byteArray, ref p);
-            TokenPrefix = new Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT10();
+            TokenPrefix = new Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT15();
             TokenPrefix.Decode(byteArray, ref p);
             Sponsorship = new Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.EnumSponsorshipState();
             Sponsorship.Decode(byteArray, ref p);
@@ -108,7 +108,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

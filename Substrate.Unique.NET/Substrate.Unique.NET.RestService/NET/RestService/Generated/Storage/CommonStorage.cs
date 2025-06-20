@@ -124,12 +124,12 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// _allowlistTypedStorage typed storage field
         /// </summary>
         private TypedMapStorage<Substrate.NetApi.Model.Types.Primitive.Bool> _allowlistTypedStorage;
-        
+
         /// <summary>
         /// _dummyStorageValueTypedStorage typed storage field
         /// </summary>
         private TypedStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionStats, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenChild, Substrate.Unique.NET.NetApiExt.Generated.Model.PhantomType.up_data_structs>> _dummyStorageValueTypedStorage;
-        
+
         /// <summary>
         /// CommonStorage constructor.
         /// </summary>
@@ -145,7 +145,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             this.AllowlistTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Primitive.Bool>("Common.Allowlist", storageDataProvider, storageChangeDelegates);
             this.DummyStorageValueTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionStats, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId, Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenChild, Substrate.Unique.NET.NetApiExt.Generated.Model.PhantomType.up_data_structs>>("Common.DummyStorageValue", storageDataProvider, storageChangeDelegates);
         }
-        
+
         /// <summary>
         /// _createdCollectionCountTypedStorage property
         /// </summary>
@@ -265,7 +265,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
                 _allowlistTypedStorage = value;
             }
         }
-        
+
         /// <summary>
         /// _dummyStorageValueTypedStorage property
         /// </summary>
@@ -280,7 +280,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
                 _dummyStorageValueTypedStorage = value;
             }
         }
-        
+
         /// <summary>
         /// Connects to all storages and initializes the change subscription handling.
         /// </summary>
@@ -515,7 +515,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         {
             DummyStorageValueTypedStorage.Update(data);
         }
-        
+
         /// <summary>
         /// >> DummyStorageValue
         ///  Not used by code, exists only to provide some types to metadata.

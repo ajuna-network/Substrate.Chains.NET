@@ -28,13 +28,22 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> Proposals
         ///  The hashes of the active proposals.
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31 GetProposals();
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT36 GetProposals();
         
         /// <summary>
         /// >> ProposalOf
         ///  Actual proposal for a given hash, if it's current.
         /// </summary>
         Substrate.Unique.NET.NetApiExt.Generated.Model.unique_runtime.EnumRuntimeCall GetProposalOf(string key);
+        
+        /// <summary>
+        /// >> CostOf
+        ///  Consideration cost created for publishing and storing a proposal.
+        /// 
+        ///  Determined by [Config::Consideration] and may be not present for certain proposals (e.g. if
+        ///  the proposal count at the time of creation was below threshold N).
+        /// </summary>
+        Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.traits.tokens.fungible.HoldConsiderationT3> GetCostOf(string key);
         
         /// <summary>
         /// >> Voting
@@ -56,7 +65,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         
         /// <summary>
         /// >> Prime
-        ///  The prime member that helps determine the default vote behavior in case of absentations.
+        ///  The prime member that helps determine the default vote behavior in case of abstentions.
         /// </summary>
         Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32 GetPrime();
     }
@@ -70,12 +79,17 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _proposalsTypedStorage typed storage field
         /// </summary>
-        private TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31> _proposalsTypedStorage;
+        private TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT36> _proposalsTypedStorage;
         
         /// <summary>
         /// _proposalOfTypedStorage typed storage field
         /// </summary>
         private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.unique_runtime.EnumRuntimeCall> _proposalOfTypedStorage;
+        
+        /// <summary>
+        /// _costOfTypedStorage typed storage field
+        /// </summary>
+        private TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.traits.tokens.fungible.HoldConsiderationT3>> _costOfTypedStorage;
         
         /// <summary>
         /// _votingTypedStorage typed storage field
@@ -102,8 +116,9 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// </summary>
         public TechnicalCommitteeStorage(IStorageDataProvider storageDataProvider, List<IStorageChangeDelegate> storageChangeDelegates)
         {
-            this.ProposalsTypedStorage = new TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31>("TechnicalCommittee.Proposals", storageDataProvider, storageChangeDelegates);
+            this.ProposalsTypedStorage = new TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT36>("TechnicalCommittee.Proposals", storageDataProvider, storageChangeDelegates);
             this.ProposalOfTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.unique_runtime.EnumRuntimeCall>("TechnicalCommittee.ProposalOf", storageDataProvider, storageChangeDelegates);
+            this.CostOfTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.traits.tokens.fungible.HoldConsiderationT3>>("TechnicalCommittee.CostOf", storageDataProvider, storageChangeDelegates);
             this.VotingTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collective.Votes>("TechnicalCommittee.Voting", storageDataProvider, storageChangeDelegates);
             this.ProposalCountTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32>("TechnicalCommittee.ProposalCount", storageDataProvider, storageChangeDelegates);
             this.MembersTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>>("TechnicalCommittee.Members", storageDataProvider, storageChangeDelegates);
@@ -113,7 +128,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _proposalsTypedStorage property
         /// </summary>
-        public TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31> ProposalsTypedStorage
+        public TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT36> ProposalsTypedStorage
         {
             get
             {
@@ -137,6 +152,21 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             set
             {
                 _proposalOfTypedStorage = value;
+            }
+        }
+        
+        /// <summary>
+        /// _costOfTypedStorage property
+        /// </summary>
+        public TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.traits.tokens.fungible.HoldConsiderationT3>> CostOfTypedStorage
+        {
+            get
+            {
+                return _costOfTypedStorage;
+            }
+            set
+            {
+                _costOfTypedStorage = value;
             }
         }
         
@@ -207,6 +237,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         {
             await ProposalsTypedStorage.InitializeAsync("TechnicalCommittee", "Proposals");
             await ProposalOfTypedStorage.InitializeAsync("TechnicalCommittee", "ProposalOf");
+            await CostOfTypedStorage.InitializeAsync("TechnicalCommittee", "CostOf");
             await VotingTypedStorage.InitializeAsync("TechnicalCommittee", "Voting");
             await ProposalCountTypedStorage.InitializeAsync("TechnicalCommittee", "ProposalCount");
             await MembersTypedStorage.InitializeAsync("TechnicalCommittee", "Members");
@@ -226,7 +257,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> Proposals
         ///  The hashes of the active proposals.
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31 GetProposals()
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT36 GetProposals()
         {
             return ProposalsTypedStorage.Get();
         }
@@ -251,6 +282,38 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
                 return null;
             }
             if (ProposalOfTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.unique_runtime.EnumRuntimeCall result))
+            {
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        
+        /// <summary>
+        /// Implements any storage change for TechnicalCommittee.CostOf
+        /// </summary>
+        [StorageChange("TechnicalCommittee", "CostOf")]
+        public void OnUpdateCostOf(string key, string data)
+        {
+            CostOfTypedStorage.Update(key, data);
+        }
+        
+        /// <summary>
+        /// >> CostOf
+        ///  Consideration cost created for publishing and storing a proposal.
+        /// 
+        ///  Determined by [Config::Consideration] and may be not present for certain proposals (e.g. if
+        ///  the proposal count at the time of creation was below threshold N).
+        /// </summary>
+        public Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.traits.tokens.fungible.HoldConsiderationT3> GetCostOf(string key)
+        {
+            if ((key == null))
+            {
+                return null;
+            }
+            if (CostOfTypedStorage.Dictionary.TryGetValue(key, out Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.traits.tokens.fungible.HoldConsiderationT3> result))
             {
                 return result;
             }
@@ -336,7 +399,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         
         /// <summary>
         /// >> Prime
-        ///  The prime member that helps determine the default vote behavior in case of absentations.
+        ///  The prime member that helps determine the default vote behavior in case of abstentions.
         /// </summary>
         public Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32 GetPrime()
         {

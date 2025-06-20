@@ -96,7 +96,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.pallet
         
         /// <summary>
         /// >> Seconded
-        /// An account has secconded a proposal
+        /// An account has seconded a proposal
         /// </summary>
         Seconded = 12,
         
@@ -126,10 +126,34 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.pallet
     }
     
     /// <summary>
-    /// >> 66 - Variant[pallet_democracy.pallet.Event]
+    /// >> 76 - Variant[pallet_democracy.pallet.Event]
     /// The `Event` enum of this pallet
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Primitive.U128>, BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Primitive.U128>, BaseVoid, BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.vote_threshold.EnumVoteThreshold>, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Primitive.U32, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256, Substrate.NetApi.Model.Types.Primitive.U32>, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.vote.EnumAccountVote>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.NetApi.Model.Types.Primitive.U32>, Substrate.NetApi.Model.Types.Primitive.U32, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types.EnumMetadataOwner, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types.EnumMetadataOwner, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types.EnumMetadataOwner, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types.EnumMetadataOwner, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Primitive.U128>>(Event.Proposed);
+				AddTypeDecoder<BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Primitive.U128>>(Event.Tabled);
+				AddTypeDecoder<BaseVoid>(Event.ExternalTabled);
+				AddTypeDecoder<BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.vote_threshold.EnumVoteThreshold>>(Event.Started);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(Event.Passed);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(Event.NotPassed);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(Event.Cancelled);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>>(Event.Delegated);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32>(Event.Undelegated);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256, Substrate.NetApi.Model.Types.Primitive.U32>>(Event.Vetoed);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>(Event.Blacklisted);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.vote.EnumAccountVote>>(Event.Voted);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.crypto.AccountId32, Substrate.NetApi.Model.Types.Primitive.U32>>(Event.Seconded);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(Event.ProposalCanceled);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types.EnumMetadataOwner, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>>(Event.MetadataSet);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types.EnumMetadataOwner, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>>(Event.MetadataCleared);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types.EnumMetadataOwner, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types.EnumMetadataOwner, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>>(Event.MetadataTransferred);
+        }
     }
 }

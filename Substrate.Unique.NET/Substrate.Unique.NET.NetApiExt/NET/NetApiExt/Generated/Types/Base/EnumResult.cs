@@ -33,9 +33,18 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Types.Base
     }
     
     /// <summary>
-    /// >> 597 - Variant[Result]
+    /// >> 678 - Variant[Result]
     /// </summary>
-    public sealed class EnumResult : BaseEnumExt<Result, Substrate.Unique.NET.NetApiExt.Generated.Types.Base.EnumResult, Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.transaction_validity.EnumTransactionValidityError>
+    public sealed class EnumResult : BaseEnumRust<Result>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumResult()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Types.Base.EnumResult>(Result.Ok);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_runtime.transaction_validity.EnumTransactionValidityError>(Result.Err);
+        }
     }
 }

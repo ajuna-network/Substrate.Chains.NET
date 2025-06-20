@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_parachai
     
     
     /// <summary>
-    /// >> 406 - Composite[cumulus_pallet_parachain_system.relay_state_snapshot.MessagingStateSnapshot]
+    /// >> 473 - Composite[cumulus_pallet_parachain_system.relay_state_snapshot.MessagingStateSnapshot]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class MessagingStateSnapshot : BaseType
@@ -35,11 +35,11 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_parachai
         /// <summary>
         /// >> ingress_channels
         /// </summary>
-        public Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v6.AbridgedHrmpChannel>> IngressChannels { get; set; }
+        public Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v8.AbridgedHrmpChannel>> IngressChannels { get; set; }
         /// <summary>
         /// >> egress_channels
         /// </summary>
-        public Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v6.AbridgedHrmpChannel>> EgressChannels { get; set; }
+        public Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v8.AbridgedHrmpChannel>> EgressChannels { get; set; }
         
         /// <inheritdoc/>
         public override string TypeName()
@@ -66,14 +66,14 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_parachai
             DmqMqcHead.Decode(byteArray, ref p);
             RelayDispatchQueueRemainingCapacity = new Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_parachain_system.relay_state_snapshot.RelayDispatchQueueRemainingCapacity();
             RelayDispatchQueueRemainingCapacity.Decode(byteArray, ref p);
-            IngressChannels = new Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v6.AbridgedHrmpChannel>>();
+            IngressChannels = new Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v8.AbridgedHrmpChannel>>();
             IngressChannels.Decode(byteArray, ref p);
-            EgressChannels = new Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v6.AbridgedHrmpChannel>>();
+            EgressChannels = new Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_primitives.v8.AbridgedHrmpChannel>>();
             EgressChannels.Decode(byteArray, ref p);
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> PublicProps
         ///  The public proposals. Unsorted. The second item is the proposal.
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT27 GetPublicProps();
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT32 GetPublicProps();
         
         /// <summary>
         /// >> DepositOf
@@ -42,7 +42,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// 
         ///  TWOX-NOTE: Safe, as increasing integer keys are safe.
         /// </summary>
-        Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28, Substrate.NetApi.Model.Types.Primitive.U128> GetDepositOf(string key);
+        Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33, Substrate.NetApi.Model.Types.Primitive.U128> GetDepositOf(string key);
         
         /// <summary>
         /// >> ReferendumCount
@@ -95,7 +95,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         ///  A record of who vetoed what. Maps proposal hash to a possible existent block number
         ///  (until when it may not be resubmitted) and who vetoed it.
         /// </summary>
-        Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28> GetBlacklist(string key);
+        Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33> GetBlacklist(string key);
         
         /// <summary>
         /// >> Cancellations
@@ -129,12 +129,12 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _publicPropsTypedStorage typed storage field
         /// </summary>
-        private TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT27> _publicPropsTypedStorage;
+        private TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT32> _publicPropsTypedStorage;
         
         /// <summary>
         /// _depositOfTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28, Substrate.NetApi.Model.Types.Primitive.U128>> _depositOfTypedStorage;
+        private TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33, Substrate.NetApi.Model.Types.Primitive.U128>> _depositOfTypedStorage;
         
         /// <summary>
         /// _referendumCountTypedStorage typed storage field
@@ -169,7 +169,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _blacklistTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28>> _blacklistTypedStorage;
+        private TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33>> _blacklistTypedStorage;
         
         /// <summary>
         /// _cancellationsTypedStorage typed storage field
@@ -187,15 +187,15 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         public DemocracyStorage(IStorageDataProvider storageDataProvider, List<IStorageChangeDelegate> storageChangeDelegates)
         {
             this.PublicPropCountTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32>("Democracy.PublicPropCount", storageDataProvider, storageChangeDelegates);
-            this.PublicPropsTypedStorage = new TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT27>("Democracy.PublicProps", storageDataProvider, storageChangeDelegates);
-            this.DepositOfTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28, Substrate.NetApi.Model.Types.Primitive.U128>>("Democracy.DepositOf", storageDataProvider, storageChangeDelegates);
+            this.PublicPropsTypedStorage = new TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT32>("Democracy.PublicProps", storageDataProvider, storageChangeDelegates);
+            this.DepositOfTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33, Substrate.NetApi.Model.Types.Primitive.U128>>("Democracy.DepositOf", storageDataProvider, storageChangeDelegates);
             this.ReferendumCountTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32>("Democracy.ReferendumCount", storageDataProvider, storageChangeDelegates);
             this.LowestUnbakedTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32>("Democracy.LowestUnbaked", storageDataProvider, storageChangeDelegates);
             this.ReferendumInfoOfTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.types.EnumReferendumInfo>("Democracy.ReferendumInfoOf", storageDataProvider, storageChangeDelegates);
             this.VotingOfTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.vote.EnumVoting>("Democracy.VotingOf", storageDataProvider, storageChangeDelegates);
             this.LastTabledWasExternalTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.Bool>("Democracy.LastTabledWasExternal", storageDataProvider, storageChangeDelegates);
             this.NextExternalTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.traits.preimages.EnumBounded, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_democracy.vote_threshold.EnumVoteThreshold>>("Democracy.NextExternal", storageDataProvider, storageChangeDelegates);
-            this.BlacklistTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28>>("Democracy.Blacklist", storageDataProvider, storageChangeDelegates);
+            this.BlacklistTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33>>("Democracy.Blacklist", storageDataProvider, storageChangeDelegates);
             this.CancellationsTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Primitive.Bool>("Democracy.Cancellations", storageDataProvider, storageChangeDelegates);
             this.MetadataOfTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>("Democracy.MetadataOf", storageDataProvider, storageChangeDelegates);
         }
@@ -218,7 +218,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _publicPropsTypedStorage property
         /// </summary>
-        public TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT27> PublicPropsTypedStorage
+        public TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT32> PublicPropsTypedStorage
         {
             get
             {
@@ -233,7 +233,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _depositOfTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28, Substrate.NetApi.Model.Types.Primitive.U128>> DepositOfTypedStorage
+        public TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33, Substrate.NetApi.Model.Types.Primitive.U128>> DepositOfTypedStorage
         {
             get
             {
@@ -338,7 +338,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _blacklistTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28>> BlacklistTypedStorage
+        public TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33>> BlacklistTypedStorage
         {
             get
             {
@@ -430,7 +430,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> PublicProps
         ///  The public proposals. Unsorted. The second item is the proposal.
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT27 GetPublicProps()
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT32 GetPublicProps()
         {
             return PublicPropsTypedStorage.Get();
         }
@@ -450,13 +450,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// 
         ///  TWOX-NOTE: Safe, as increasing integer keys are safe.
         /// </summary>
-        public Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28, Substrate.NetApi.Model.Types.Primitive.U128> GetDepositOf(string key)
+        public Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33, Substrate.NetApi.Model.Types.Primitive.U128> GetDepositOf(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (DepositOfTypedStorage.Dictionary.TryGetValue(key, out Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28, Substrate.NetApi.Model.Types.Primitive.U128> result))
+            if (DepositOfTypedStorage.Dictionary.TryGetValue(key, out Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33, Substrate.NetApi.Model.Types.Primitive.U128> result))
             {
                 return result;
             }
@@ -620,13 +620,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         ///  A record of who vetoed what. Maps proposal hash to a possible existent block number
         ///  (until when it may not be resubmitted) and who vetoed it.
         /// </summary>
-        public Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28> GetBlacklist(string key)
+        public Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33> GetBlacklist(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (BlacklistTypedStorage.Dictionary.TryGetValue(key, out Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT28> result))
+            if (BlacklistTypedStorage.Dictionary.TryGetValue(key, out Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT33> result))
             {
                 return result;
             }

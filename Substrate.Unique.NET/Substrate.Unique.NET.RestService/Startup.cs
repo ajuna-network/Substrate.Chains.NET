@@ -89,7 +89,7 @@ namespace Substrate.Unique.NET.RestService
          else
          {
             // Configure regular data provider
-            _storageDataProvider = new SubstrateDataProvider(Environment.GetEnvironmentVariable("SUBSTRATE_WEBSOCKET_ENDPOINT") ?? "wss://unique-rpc.dwellir.com");
+            _storageDataProvider = new SubstrateDataProvider(Environment.GetEnvironmentVariable("SUBSTRATE_WEBSOCKET_ENDPOINT") ?? "wss://unique.ibp.network");
          }
 
          // Configure web sockets to allow clients to subscribe to storage changes.

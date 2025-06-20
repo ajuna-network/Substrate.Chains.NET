@@ -62,6 +62,18 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         }
         
         /// <summary>
+        /// >> InherentsApplied
+        ///  Whether all inherents have been applied.
+        /// </summary>
+        [HttpGet("InherentsApplied")]
+        [ProducesResponseType(typeof(Substrate.NetApi.Model.Types.Primitive.Bool), 200)]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.SystemStorage), "InherentsAppliedParams")]
+        public IActionResult GetInherentsApplied()
+        {
+            return this.Ok(_systemStorage.GetInherentsApplied());
+        }
+        
+        /// <summary>
         /// >> BlockWeight
         ///  The current weight for the block.
         /// </summary>
@@ -243,6 +255,18 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         public IActionResult GetExecutionPhase()
         {
             return this.Ok(_systemStorage.GetExecutionPhase());
+        }
+        
+        /// <summary>
+        /// >> AuthorizedUpgrade
+        ///  `Some` if a code upgrade has been authorized.
+        /// </summary>
+        [HttpGet("AuthorizedUpgrade")]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.frame_system.CodeUpgradeAuthorization), 200)]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.SystemStorage), "AuthorizedUpgradeParams")]
+        public IActionResult GetAuthorizedUpgrade()
+        {
+            return this.Ok(_systemStorage.GetAuthorizedUpgrade());
         }
     }
 }

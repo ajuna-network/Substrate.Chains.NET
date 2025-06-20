@@ -38,9 +38,19 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3
     }
     
     /// <summary>
-    /// >> 241 - Variant[xcm.v3.MaybeErrorCode]
+    /// >> 257 - Variant[xcm.v3.MaybeErrorCode]
     /// </summary>
-    public sealed class EnumMaybeErrorCode : BaseEnumExt<MaybeErrorCode, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT7, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT7>
+    public sealed class EnumMaybeErrorCode : BaseEnumRust<MaybeErrorCode>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumMaybeErrorCode()
+        {
+				AddTypeDecoder<BaseVoid>(MaybeErrorCode.Success);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT7>(MaybeErrorCode.Error);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT7>(MaybeErrorCode.TruncatedError);
+        }
     }
 }

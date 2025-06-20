@@ -37,6 +37,11 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.unique_runtime
         TechnicalCommittee = 44,
         
         /// <summary>
+        /// >> FinancialCouncil
+        /// </summary>
+        FinancialCouncil = 97,
+        
+        /// <summary>
         /// >> Origins
         /// </summary>
         Origins = 99,
@@ -55,17 +60,27 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.unique_runtime
         /// >> Ethereum
         /// </summary>
         Ethereum = 101,
-        
-        /// <summary>
-        /// >> Void
-        /// </summary>
-        Void = 7,
     }
     
     /// <summary>
-    /// >> 200 - Variant[unique_runtime.OriginCaller]
+    /// >> 227 - Variant[unique_runtime.OriginCaller]
     /// </summary>
-    public sealed class EnumOriginCaller : BaseEnumExt<OriginCaller, Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.dispatch.EnumRawOrigin, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, Substrate.NetApi.Model.Types.Base.BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collective.EnumRawOrigin, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collective.EnumRawOrigin, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_xcm.pallet.EnumOrigin, Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcm.pallet.EnumOrigin, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_gov_origins.pallet.EnumOrigin, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_ethereum.EnumRawOrigin>
+    public sealed class EnumOriginCaller : BaseEnumRust<OriginCaller>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumOriginCaller()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.frame_support.dispatch.EnumRawOrigin>(OriginCaller.system);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collective.EnumRawOrigin>(OriginCaller.Council);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collective.EnumRawOrigin>(OriginCaller.TechnicalCommittee);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collective.EnumRawOrigin>(OriginCaller.FinancialCouncil);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_gov_origins.pallet.EnumOrigin>(OriginCaller.Origins);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_xcm.pallet.EnumOrigin>(OriginCaller.PolkadotXcm);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcm.pallet.EnumOrigin>(OriginCaller.CumulusXcm);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_ethereum.EnumRawOrigin>(OriginCaller.Ethereum);
+        }
     }
 }

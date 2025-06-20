@@ -40,6 +40,11 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256 GetAccountStorages(string key);
         
         /// <summary>
+        /// >> Suicided
+        /// </summary>
+        Substrate.NetApi.Model.Types.Base.BaseTuple GetSuicided(string key);
+        
+        /// <summary>
         /// >> CurrentLogs
         ///  Written on log, reset after transaction
         ///  Should be empty between transactions
@@ -69,6 +74,11 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256> _accountStoragesTypedStorage;
         
         /// <summary>
+        /// _suicidedTypedStorage typed storage field
+        /// </summary>
+        private TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple> _suicidedTypedStorage;
+        
+        /// <summary>
         /// _currentLogsTypedStorage typed storage field
         /// </summary>
         private TypedStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.log.Log>> _currentLogsTypedStorage;
@@ -81,6 +91,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             this.AccountCodesTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>("EVM.AccountCodes", storageDataProvider, storageChangeDelegates);
             this.AccountCodesMetadataTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm.CodeMetadata>("EVM.AccountCodesMetadata", storageDataProvider, storageChangeDelegates);
             this.AccountStoragesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256>("EVM.AccountStorages", storageDataProvider, storageChangeDelegates);
+            this.SuicidedTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple>("EVM.Suicided", storageDataProvider, storageChangeDelegates);
             this.CurrentLogsTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.log.Log>>("EVM.CurrentLogs", storageDataProvider, storageChangeDelegates);
         }
         
@@ -130,6 +141,21 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         }
         
         /// <summary>
+        /// _suicidedTypedStorage property
+        /// </summary>
+        public TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple> SuicidedTypedStorage
+        {
+            get
+            {
+                return _suicidedTypedStorage;
+            }
+            set
+            {
+                _suicidedTypedStorage = value;
+            }
+        }
+        
+        /// <summary>
         /// _currentLogsTypedStorage property
         /// </summary>
         public TypedStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.log.Log>> CurrentLogsTypedStorage
@@ -152,6 +178,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             await AccountCodesTypedStorage.InitializeAsync("EVM", "AccountCodes");
             await AccountCodesMetadataTypedStorage.InitializeAsync("EVM", "AccountCodesMetadata");
             await AccountStoragesTypedStorage.InitializeAsync("EVM", "AccountStorages");
+            await SuicidedTypedStorage.InitializeAsync("EVM", "Suicided");
             await CurrentLogsTypedStorage.InitializeAsync("EVM", "CurrentLogs");
         }
         
@@ -230,6 +257,34 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
                 return null;
             }
             if (AccountStoragesTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H256 result))
+            {
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        
+        /// <summary>
+        /// Implements any storage change for EVM.Suicided
+        /// </summary>
+        [StorageChange("EVM", "Suicided")]
+        public void OnUpdateSuicided(string key, string data)
+        {
+            SuicidedTypedStorage.Update(key, data);
+        }
+        
+        /// <summary>
+        /// >> Suicided
+        /// </summary>
+        public Substrate.NetApi.Model.Types.Base.BaseTuple GetSuicided(string key)
+        {
+            if ((key == null))
+            {
+                return null;
+            }
+            if (SuicidedTypedStorage.Dictionary.TryGetValue(key, out Substrate.NetApi.Model.Types.Base.BaseTuple result))
             {
                 return result;
             }

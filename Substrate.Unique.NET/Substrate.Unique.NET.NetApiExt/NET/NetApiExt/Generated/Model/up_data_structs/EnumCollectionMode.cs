@@ -38,9 +38,19 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs
     }
     
     /// <summary>
-    /// >> 264 - Variant[up_data_structs.CollectionMode]
+    /// >> 326 - Variant[up_data_structs.CollectionMode]
     /// </summary>
-    public sealed class EnumCollectionMode : BaseEnumExt<CollectionMode, BaseVoid, Substrate.NetApi.Model.Types.Primitive.U8, BaseVoid>
+    public sealed class EnumCollectionMode : BaseEnumRust<CollectionMode>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumCollectionMode()
+        {
+				AddTypeDecoder<BaseVoid>(CollectionMode.NFT);
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U8>(CollectionMode.Fungible);
+				AddTypeDecoder<BaseVoid>(CollectionMode.ReFungible);
+        }
     }
 }

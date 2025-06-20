@@ -3,7 +3,7 @@
       <TargetFramework>netstandard2.0</TargetFramework>
    </PropertyGroup>
    <ItemGroup>
-      <PackageReference Include="Substrate.ServiceLayer.Model" Version="0.5.3" />
+      <PackageReference Include="Substrate.ServiceLayer.Model" Version="0.6.9" />
    </ItemGroup>
    <ItemGroup>      
       <ProjectReference Include="..\Substrate.Unique.NET.RestClient\Substrate.Unique.NET.RestClient.csproj" />

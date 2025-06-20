@@ -38,9 +38,19 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_state_trie_migra
     }
     
     /// <summary>
-    /// >> 91 - Variant[pallet_state_trie_migration.pallet.Progress]
+    /// >> 100 - Variant[pallet_state_trie_migration.pallet.Progress]
     /// </summary>
-    public sealed class EnumProgress : BaseEnumExt<Progress, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT1, BaseVoid>
+    public sealed class EnumProgress : BaseEnumRust<Progress>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumProgress()
+        {
+				AddTypeDecoder<BaseVoid>(Progress.ToStart);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT1>(Progress.LastKey);
+				AddTypeDecoder<BaseVoid>(Progress.Complete);
+        }
     }
 }

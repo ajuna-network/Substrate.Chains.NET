@@ -39,7 +39,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// >> PreimageFor
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26 GetPreimageFor(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31 GetPreimageFor(string key);
     }
     
     /// <summary>
@@ -61,7 +61,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _preimageForTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26> _preimageForTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31> _preimageForTypedStorage;
         
         /// <summary>
         /// PreimageStorage constructor.
@@ -70,7 +70,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         {
             this.StatusForTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_preimage.EnumOldRequestStatus>("Preimage.StatusFor", storageDataProvider, storageChangeDelegates);
             this.RequestStatusForTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_preimage.EnumRequestStatus>("Preimage.RequestStatusFor", storageDataProvider, storageChangeDelegates);
-            this.PreimageForTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26>("Preimage.PreimageFor", storageDataProvider, storageChangeDelegates);
+            this.PreimageForTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31>("Preimage.PreimageFor", storageDataProvider, storageChangeDelegates);
         }
         
         /// <summary>
@@ -106,7 +106,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _preimageForTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26> PreimageForTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31> PreimageForTypedStorage
         {
             get
             {
@@ -198,13 +198,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// >> PreimageFor
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26 GetPreimageFor(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31 GetPreimageFor(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (PreimageForTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT26 result))
+            if (PreimageForTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT31 result))
             {
                 return result;
             }

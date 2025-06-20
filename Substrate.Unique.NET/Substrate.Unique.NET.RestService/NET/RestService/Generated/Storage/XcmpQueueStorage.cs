@@ -25,16 +25,17 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
     {
         
         /// <summary>
-        /// >> InboundXcmpStatus
-        ///  Status of the inbound XCMP channels.
+        /// >> InboundXcmpSuspended
+        ///  The suspended inbound XCMP channels. All others are not suspended.
+        /// 
+        ///  This is a `StorageValue` instead of a `StorageMap` since we expect multiple reads per block
+        ///  to different keys with a one byte payload. The access to `BoundedBTreeSet` will be cached
+        ///  within the block and therefore only included once in the proof size.
+        /// 
+        ///  NOTE: The PoV benchmarking cannot know this and will over-estimate, but the actual proof
+        ///  will be smaller.
         /// </summary>
-        Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.InboundChannelDetails> GetInboundXcmpStatus();
-        
-        /// <summary>
-        /// >> InboundXcmpMessages
-        ///  Inbound aggregate XCMP messages. It can only be one per ParaId/block.
-        /// </summary>
-        Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8> GetInboundXcmpMessages(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_btree_set.BoundedBTreeSetT2 GetInboundXcmpSuspended();
         
         /// <summary>
         /// >> OutboundXcmpStatus
@@ -45,47 +46,25 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         ///  case of the need to send a high-priority signal message this block.
         ///  The bool is true if there is a signal message waiting to be sent.
         /// </summary>
-        Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.OutboundChannelDetails> GetOutboundXcmpStatus();
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT44 GetOutboundXcmpStatus();
         
         /// <summary>
         /// >> OutboundXcmpMessages
         ///  The messages outbound in a given XCMP channel.
         /// </summary>
-        Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8> GetOutboundXcmpMessages(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2 GetOutboundXcmpMessages(string key);
         
         /// <summary>
         /// >> SignalMessages
         ///  Any signal messages waiting to be sent.
         /// </summary>
-        Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8> GetSignalMessages(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2 GetSignalMessages(string key);
         
         /// <summary>
         /// >> QueueConfig
         ///  The configuration which controls the dynamics of the outbound queue.
         /// </summary>
         Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.QueueConfigData GetQueueConfig();
-        
-        /// <summary>
-        /// >> Overweight
-        ///  The messages that exceeded max individual message weight budget.
-        /// 
-        ///  These message stay in this storage map until they are manually dispatched via
-        ///  `service_overweight`.
-        /// </summary>
-        Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>> GetOverweight(string key);
-        
-        /// <summary>
-        /// >> CounterForOverweight
-        /// Counter for the related counted storage map
-        /// </summary>
-        Substrate.NetApi.Model.Types.Primitive.U32 GetCounterForOverweight();
-        
-        /// <summary>
-        /// >> OverweightCount
-        ///  The number of overweight messages ever recorded in `Overweight`. Also doubles as the next
-        ///  available free overweight index.
-        /// </summary>
-        Substrate.NetApi.Model.Types.Primitive.U64 GetOverweightCount();
         
         /// <summary>
         /// >> QueueSuspended
@@ -107,49 +86,29 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
     {
         
         /// <summary>
-        /// _inboundXcmpStatusTypedStorage typed storage field
+        /// _inboundXcmpSuspendedTypedStorage typed storage field
         /// </summary>
-        private TypedStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.InboundChannelDetails>> _inboundXcmpStatusTypedStorage;
-        
-        /// <summary>
-        /// _inboundXcmpMessagesTypedStorage typed storage field
-        /// </summary>
-        private TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>> _inboundXcmpMessagesTypedStorage;
+        private TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_btree_set.BoundedBTreeSetT2> _inboundXcmpSuspendedTypedStorage;
         
         /// <summary>
         /// _outboundXcmpStatusTypedStorage typed storage field
         /// </summary>
-        private TypedStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.OutboundChannelDetails>> _outboundXcmpStatusTypedStorage;
+        private TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT44> _outboundXcmpStatusTypedStorage;
         
         /// <summary>
         /// _outboundXcmpMessagesTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>> _outboundXcmpMessagesTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2> _outboundXcmpMessagesTypedStorage;
         
         /// <summary>
         /// _signalMessagesTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>> _signalMessagesTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2> _signalMessagesTypedStorage;
         
         /// <summary>
         /// _queueConfigTypedStorage typed storage field
         /// </summary>
         private TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.QueueConfigData> _queueConfigTypedStorage;
-        
-        /// <summary>
-        /// _overweightTypedStorage typed storage field
-        /// </summary>
-        private TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>> _overweightTypedStorage;
-        
-        /// <summary>
-        /// _counterForOverweightTypedStorage typed storage field
-        /// </summary>
-        private TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32> _counterForOverweightTypedStorage;
-        
-        /// <summary>
-        /// _overweightCountTypedStorage typed storage field
-        /// </summary>
-        private TypedStorage<Substrate.NetApi.Model.Types.Primitive.U64> _overweightCountTypedStorage;
         
         /// <summary>
         /// _queueSuspendedTypedStorage typed storage field
@@ -166,53 +125,34 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// </summary>
         public XcmpQueueStorage(IStorageDataProvider storageDataProvider, List<IStorageChangeDelegate> storageChangeDelegates)
         {
-            this.InboundXcmpStatusTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.InboundChannelDetails>>("XcmpQueue.InboundXcmpStatus", storageDataProvider, storageChangeDelegates);
-            this.InboundXcmpMessagesTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>("XcmpQueue.InboundXcmpMessages", storageDataProvider, storageChangeDelegates);
-            this.OutboundXcmpStatusTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.OutboundChannelDetails>>("XcmpQueue.OutboundXcmpStatus", storageDataProvider, storageChangeDelegates);
-            this.OutboundXcmpMessagesTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>("XcmpQueue.OutboundXcmpMessages", storageDataProvider, storageChangeDelegates);
-            this.SignalMessagesTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>("XcmpQueue.SignalMessages", storageDataProvider, storageChangeDelegates);
+            this.InboundXcmpSuspendedTypedStorage = new TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_btree_set.BoundedBTreeSetT2>("XcmpQueue.InboundXcmpSuspended", storageDataProvider, storageChangeDelegates);
+            this.OutboundXcmpStatusTypedStorage = new TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT44>("XcmpQueue.OutboundXcmpStatus", storageDataProvider, storageChangeDelegates);
+            this.OutboundXcmpMessagesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2>("XcmpQueue.OutboundXcmpMessages", storageDataProvider, storageChangeDelegates);
+            this.SignalMessagesTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2>("XcmpQueue.SignalMessages", storageDataProvider, storageChangeDelegates);
             this.QueueConfigTypedStorage = new TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.QueueConfigData>("XcmpQueue.QueueConfig", storageDataProvider, storageChangeDelegates);
-            this.OverweightTypedStorage = new TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>>("XcmpQueue.Overweight", storageDataProvider, storageChangeDelegates);
-            this.CounterForOverweightTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32>("XcmpQueue.CounterForOverweight", storageDataProvider, storageChangeDelegates);
-            this.OverweightCountTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.U64>("XcmpQueue.OverweightCount", storageDataProvider, storageChangeDelegates);
             this.QueueSuspendedTypedStorage = new TypedStorage<Substrate.NetApi.Model.Types.Primitive.Bool>("XcmpQueue.QueueSuspended", storageDataProvider, storageChangeDelegates);
             this.DeliveryFeeFactorTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.sp_arithmetic.fixed_point.FixedU128>("XcmpQueue.DeliveryFeeFactor", storageDataProvider, storageChangeDelegates);
         }
         
         /// <summary>
-        /// _inboundXcmpStatusTypedStorage property
+        /// _inboundXcmpSuspendedTypedStorage property
         /// </summary>
-        public TypedStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.InboundChannelDetails>> InboundXcmpStatusTypedStorage
+        public TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_btree_set.BoundedBTreeSetT2> InboundXcmpSuspendedTypedStorage
         {
             get
             {
-                return _inboundXcmpStatusTypedStorage;
+                return _inboundXcmpSuspendedTypedStorage;
             }
             set
             {
-                _inboundXcmpStatusTypedStorage = value;
-            }
-        }
-        
-        /// <summary>
-        /// _inboundXcmpMessagesTypedStorage property
-        /// </summary>
-        public TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>> InboundXcmpMessagesTypedStorage
-        {
-            get
-            {
-                return _inboundXcmpMessagesTypedStorage;
-            }
-            set
-            {
-                _inboundXcmpMessagesTypedStorage = value;
+                _inboundXcmpSuspendedTypedStorage = value;
             }
         }
         
         /// <summary>
         /// _outboundXcmpStatusTypedStorage property
         /// </summary>
-        public TypedStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.OutboundChannelDetails>> OutboundXcmpStatusTypedStorage
+        public TypedStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT44> OutboundXcmpStatusTypedStorage
         {
             get
             {
@@ -227,7 +167,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _outboundXcmpMessagesTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>> OutboundXcmpMessagesTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2> OutboundXcmpMessagesTypedStorage
         {
             get
             {
@@ -242,7 +182,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _signalMessagesTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>> SignalMessagesTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2> SignalMessagesTypedStorage
         {
             get
             {
@@ -266,51 +206,6 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
             set
             {
                 _queueConfigTypedStorage = value;
-            }
-        }
-        
-        /// <summary>
-        /// _overweightTypedStorage property
-        /// </summary>
-        public TypedMapStorage<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>> OverweightTypedStorage
-        {
-            get
-            {
-                return _overweightTypedStorage;
-            }
-            set
-            {
-                _overweightTypedStorage = value;
-            }
-        }
-        
-        /// <summary>
-        /// _counterForOverweightTypedStorage property
-        /// </summary>
-        public TypedStorage<Substrate.NetApi.Model.Types.Primitive.U32> CounterForOverweightTypedStorage
-        {
-            get
-            {
-                return _counterForOverweightTypedStorage;
-            }
-            set
-            {
-                _counterForOverweightTypedStorage = value;
-            }
-        }
-        
-        /// <summary>
-        /// _overweightCountTypedStorage property
-        /// </summary>
-        public TypedStorage<Substrate.NetApi.Model.Types.Primitive.U64> OverweightCountTypedStorage
-        {
-            get
-            {
-                return _overweightCountTypedStorage;
-            }
-            set
-            {
-                _overweightCountTypedStorage = value;
             }
         }
         
@@ -349,64 +244,38 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// </summary>
         public async Task InitializeAsync(Substrate.ServiceLayer.Storage.IStorageDataProvider dataProvider)
         {
-            await InboundXcmpStatusTypedStorage.InitializeAsync("XcmpQueue", "InboundXcmpStatus");
-            await InboundXcmpMessagesTypedStorage.InitializeAsync("XcmpQueue", "InboundXcmpMessages");
+            await InboundXcmpSuspendedTypedStorage.InitializeAsync("XcmpQueue", "InboundXcmpSuspended");
             await OutboundXcmpStatusTypedStorage.InitializeAsync("XcmpQueue", "OutboundXcmpStatus");
             await OutboundXcmpMessagesTypedStorage.InitializeAsync("XcmpQueue", "OutboundXcmpMessages");
             await SignalMessagesTypedStorage.InitializeAsync("XcmpQueue", "SignalMessages");
             await QueueConfigTypedStorage.InitializeAsync("XcmpQueue", "QueueConfig");
-            await OverweightTypedStorage.InitializeAsync("XcmpQueue", "Overweight");
-            await CounterForOverweightTypedStorage.InitializeAsync("XcmpQueue", "CounterForOverweight");
-            await OverweightCountTypedStorage.InitializeAsync("XcmpQueue", "OverweightCount");
             await QueueSuspendedTypedStorage.InitializeAsync("XcmpQueue", "QueueSuspended");
             await DeliveryFeeFactorTypedStorage.InitializeAsync("XcmpQueue", "DeliveryFeeFactor");
         }
         
         /// <summary>
-        /// Implements any storage change for XcmpQueue.InboundXcmpStatus
+        /// Implements any storage change for XcmpQueue.InboundXcmpSuspended
         /// </summary>
-        [StorageChange("XcmpQueue", "InboundXcmpStatus")]
-        public void OnUpdateInboundXcmpStatus(string data)
+        [StorageChange("XcmpQueue", "InboundXcmpSuspended")]
+        public void OnUpdateInboundXcmpSuspended(string data)
         {
-            InboundXcmpStatusTypedStorage.Update(data);
+            InboundXcmpSuspendedTypedStorage.Update(data);
         }
         
         /// <summary>
-        /// >> InboundXcmpStatus
-        ///  Status of the inbound XCMP channels.
+        /// >> InboundXcmpSuspended
+        ///  The suspended inbound XCMP channels. All others are not suspended.
+        /// 
+        ///  This is a `StorageValue` instead of a `StorageMap` since we expect multiple reads per block
+        ///  to different keys with a one byte payload. The access to `BoundedBTreeSet` will be cached
+        ///  within the block and therefore only included once in the proof size.
+        /// 
+        ///  NOTE: The PoV benchmarking cannot know this and will over-estimate, but the actual proof
+        ///  will be smaller.
         /// </summary>
-        public Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.InboundChannelDetails> GetInboundXcmpStatus()
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_btree_set.BoundedBTreeSetT2 GetInboundXcmpSuspended()
         {
-            return InboundXcmpStatusTypedStorage.Get();
-        }
-        
-        /// <summary>
-        /// Implements any storage change for XcmpQueue.InboundXcmpMessages
-        /// </summary>
-        [StorageChange("XcmpQueue", "InboundXcmpMessages")]
-        public void OnUpdateInboundXcmpMessages(string key, string data)
-        {
-            InboundXcmpMessagesTypedStorage.Update(key, data);
-        }
-        
-        /// <summary>
-        /// >> InboundXcmpMessages
-        ///  Inbound aggregate XCMP messages. It can only be one per ParaId/block.
-        /// </summary>
-        public Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8> GetInboundXcmpMessages(string key)
-        {
-            if ((key == null))
-            {
-                return null;
-            }
-            if (InboundXcmpMessagesTypedStorage.Dictionary.TryGetValue(key, out Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8> result))
-            {
-                return result;
-            }
-            else
-            {
-                return null;
-            }
+            return InboundXcmpSuspendedTypedStorage.Get();
         }
         
         /// <summary>
@@ -427,7 +296,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         ///  case of the need to send a high-priority signal message this block.
         ///  The bool is true if there is a signal message waiting to be sent.
         /// </summary>
-        public Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.OutboundChannelDetails> GetOutboundXcmpStatus()
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT44 GetOutboundXcmpStatus()
         {
             return OutboundXcmpStatusTypedStorage.Get();
         }
@@ -445,13 +314,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> OutboundXcmpMessages
         ///  The messages outbound in a given XCMP channel.
         /// </summary>
-        public Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8> GetOutboundXcmpMessages(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2 GetOutboundXcmpMessages(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (OutboundXcmpMessagesTypedStorage.Dictionary.TryGetValue(key, out Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8> result))
+            if (OutboundXcmpMessagesTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2 result))
             {
                 return result;
             }
@@ -474,13 +343,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> SignalMessages
         ///  Any signal messages waiting to be sent.
         /// </summary>
-        public Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8> GetSignalMessages(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2 GetSignalMessages(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (SignalMessagesTypedStorage.Dictionary.TryGetValue(key, out Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8> result))
+            if (SignalMessagesTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.weak_bounded_vec.WeakBoundedVecT2 result))
             {
                 return result;
             }
@@ -506,75 +375,6 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         public Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_xcmp_queue.QueueConfigData GetQueueConfig()
         {
             return QueueConfigTypedStorage.Get();
-        }
-        
-        /// <summary>
-        /// Implements any storage change for XcmpQueue.Overweight
-        /// </summary>
-        [StorageChange("XcmpQueue", "Overweight")]
-        public void OnUpdateOverweight(string key, string data)
-        {
-            OverweightTypedStorage.Update(key, data);
-        }
-        
-        /// <summary>
-        /// >> Overweight
-        ///  The messages that exceeded max individual message weight budget.
-        /// 
-        ///  These message stay in this storage map until they are manually dispatched via
-        ///  `service_overweight`.
-        /// </summary>
-        public Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>> GetOverweight(string key)
-        {
-            if ((key == null))
-            {
-                return null;
-            }
-            if (OverweightTypedStorage.Dictionary.TryGetValue(key, out Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.polkadot_parachain_primitives.primitives.Id, Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>> result))
-            {
-                return result;
-            }
-            else
-            {
-                return null;
-            }
-        }
-        
-        /// <summary>
-        /// Implements any storage change for XcmpQueue.CounterForOverweight
-        /// </summary>
-        [StorageChange("XcmpQueue", "CounterForOverweight")]
-        public void OnUpdateCounterForOverweight(string data)
-        {
-            CounterForOverweightTypedStorage.Update(data);
-        }
-        
-        /// <summary>
-        /// >> CounterForOverweight
-        /// Counter for the related counted storage map
-        /// </summary>
-        public Substrate.NetApi.Model.Types.Primitive.U32 GetCounterForOverweight()
-        {
-            return CounterForOverweightTypedStorage.Get();
-        }
-        
-        /// <summary>
-        /// Implements any storage change for XcmpQueue.OverweightCount
-        /// </summary>
-        [StorageChange("XcmpQueue", "OverweightCount")]
-        public void OnUpdateOverweightCount(string data)
-        {
-            OverweightCountTypedStorage.Update(data);
-        }
-        
-        /// <summary>
-        /// >> OverweightCount
-        ///  The number of overweight messages ever recorded in `Overweight`. Also doubles as the next
-        ///  available free overweight index.
-        /// </summary>
-        public Substrate.NetApi.Model.Types.Primitive.U64 GetOverweightCount()
-        {
-            return OverweightCountTypedStorage.Get();
         }
         
         /// <summary>

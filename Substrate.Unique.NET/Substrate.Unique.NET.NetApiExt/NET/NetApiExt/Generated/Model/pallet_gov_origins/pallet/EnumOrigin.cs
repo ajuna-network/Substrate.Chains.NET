@@ -28,7 +28,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_gov_origins.pall
     }
     
     /// <summary>
-    /// >> 204 - Variant[pallet_gov_origins.pallet.Origin]
+    /// >> 232 - Variant[pallet_gov_origins.pallet.Origin]
     /// </summary>
     public sealed class EnumOrigin : BaseEnum<Origin>
     {

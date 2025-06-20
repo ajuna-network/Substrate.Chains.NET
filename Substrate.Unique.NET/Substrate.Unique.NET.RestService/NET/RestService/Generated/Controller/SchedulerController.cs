@@ -53,11 +53,23 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         ///  Items to be executed, indexed by the block number that they should be executed on.
         /// </summary>
         [HttpGet("Agenda")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT36), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT41), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.SchedulerStorage), "AgendaParams", typeof(Substrate.NetApi.Model.Types.Primitive.U32))]
         public IActionResult GetAgenda(string key)
         {
             return this.Ok(_schedulerStorage.GetAgenda(key));
+        }
+        
+        /// <summary>
+        /// >> Retries
+        ///  Retry configurations for items to be executed, indexed by task address.
+        /// </summary>
+        [HttpGet("Retries")]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_scheduler.RetryConfig), 200)]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.SchedulerStorage), "RetriesParams", typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Primitive.U32>))]
+        public IActionResult GetRetries(string key)
+        {
+            return this.Ok(_schedulerStorage.GetRetries(key));
         }
         
         /// <summary>

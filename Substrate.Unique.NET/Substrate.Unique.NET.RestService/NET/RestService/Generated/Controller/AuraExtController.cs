@@ -46,7 +46,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         ///  always be updated to the latest AuRa authorities in `on_finalize`.
         /// </summary>
         [HttpGet("Authorities")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT18), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT23), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.AuraExtStorage), "AuthoritiesParams")]
         public IActionResult GetAuthorities()
         {

@@ -54,10 +54,22 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm.pallet
     }
     
     /// <summary>
-    /// >> 365 - Variant[pallet_evm.pallet.Event]
+    /// >> 432 - Variant[pallet_evm.pallet.Event]
     /// The `Event` enum of this pallet
     /// </summary>
-    public sealed class EnumEvent : BaseEnumExt<Event, Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.log.Log, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160, Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>
+    public sealed class EnumEvent : BaseEnumRust<Event>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumEvent()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.log.Log>(Event.Log);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>(Event.Created);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>(Event.CreatedFailed);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>(Event.Executed);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.primitive_types.H160>(Event.ExecutedFailed);
+        }
     }
 }

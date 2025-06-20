@@ -38,9 +38,19 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_xcm.pallet
     }
     
     /// <summary>
-    /// >> 541 - Variant[pallet_xcm.pallet.QueryStatus]
+    /// >> 618 - Variant[pallet_xcm.pallet.QueryStatus]
     /// </summary>
-    public sealed class EnumQueryStatus : BaseEnumExt<QueryStatus, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedMultiLocation, Substrate.NetApi.Model.Types.Base.BaseOpt<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedMultiLocation>, Substrate.NetApi.Model.Types.Base.BaseOpt<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U8, Substrate.NetApi.Model.Types.Primitive.U8>>, Substrate.NetApi.Model.Types.Primitive.U32>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedMultiLocation, Substrate.NetApi.Model.Types.Primitive.Bool>, BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedResponse, Substrate.NetApi.Model.Types.Primitive.U32>>
+    public sealed class EnumQueryStatus : BaseEnumRust<QueryStatus>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumQueryStatus()
+        {
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedLocation, Substrate.NetApi.Model.Types.Base.BaseOpt<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedLocation>, Substrate.NetApi.Model.Types.Base.BaseOpt<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U8, Substrate.NetApi.Model.Types.Primitive.U8>>, Substrate.NetApi.Model.Types.Primitive.U32>>(QueryStatus.Pending);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedLocation, Substrate.NetApi.Model.Types.Primitive.Bool>>(QueryStatus.VersionNotifier);
+				AddTypeDecoder<BaseTuple<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedResponse, Substrate.NetApi.Model.Types.Primitive.U32>>(QueryStatus.Ready);
+        }
     }
 }

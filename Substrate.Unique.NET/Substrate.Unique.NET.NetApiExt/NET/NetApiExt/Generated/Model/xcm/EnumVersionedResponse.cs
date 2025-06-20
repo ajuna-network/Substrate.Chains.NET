@@ -22,20 +22,35 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.xcm
     {
         
         /// <summary>
-        /// >> V2
-        /// </summary>
-        V2 = 2,
-        
-        /// <summary>
         /// >> V3
         /// </summary>
         V3 = 3,
+        
+        /// <summary>
+        /// >> V4
+        /// </summary>
+        V4 = 4,
+        
+        /// <summary>
+        /// >> V5
+        /// </summary>
+        V5 = 5,
     }
     
     /// <summary>
-    /// >> 545 - Variant[xcm.VersionedResponse]
+    /// >> 622 - Variant[xcm.VersionedResponse]
     /// </summary>
-    public sealed class EnumVersionedResponse : BaseEnumExt<VersionedResponse, BaseVoid, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v2.EnumResponse, Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.EnumResponse>
+    public sealed class EnumVersionedResponse : BaseEnumRust<VersionedResponse>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumVersionedResponse()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.EnumResponse>(VersionedResponse.V3);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v4.EnumResponse>(VersionedResponse.V4);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.EnumResponse>(VersionedResponse.V5);
+        }
     }
 }

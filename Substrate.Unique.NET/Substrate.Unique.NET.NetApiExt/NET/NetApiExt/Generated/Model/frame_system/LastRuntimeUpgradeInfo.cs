@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.frame_system
     
     
     /// <summary>
-    /// >> 381 - Composite[frame_system.LastRuntimeUpgradeInfo]
+    /// >> 448 - Composite[frame_system.LastRuntimeUpgradeInfo]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class LastRuntimeUpgradeInfo : BaseType
@@ -31,7 +31,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.frame_system
         /// <summary>
         /// >> spec_name
         /// </summary>
-        public Substrate.NetApi.Model.Types.Primitive.Str SpecName { get; set; }
+        public Substrate.Unique.NET.NetApiExt.Generated.Types.Base.CowT1 SpecName { get; set; }
         
         /// <inheritdoc/>
         public override string TypeName()
@@ -54,12 +54,12 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.frame_system
             var start = p;
             SpecVersion = new Substrate.NetApi.Model.Types.Base.BaseCom<Substrate.NetApi.Model.Types.Primitive.U32>();
             SpecVersion.Decode(byteArray, ref p);
-            SpecName = new Substrate.NetApi.Model.Types.Primitive.Str();
+            SpecName = new Substrate.Unique.NET.NetApiExt.Generated.Types.Base.CowT1();
             SpecName.Decode(byteArray, ref p);
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

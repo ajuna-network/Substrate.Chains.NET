@@ -38,63 +38,15 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         }
         
         /// <summary>
-        /// >> Configuration
-        ///  The configuration.
+        /// >> MigrationStatus
+        ///  The migration state of this pallet.
         /// </summary>
-        [HttpGet("Configuration")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_dmp_queue.ConfigData), 200)]
-        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.DmpQueueStorage), "ConfigurationParams")]
-        public IActionResult GetConfiguration()
+        [HttpGet("MigrationStatus")]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_dmp_queue.pallet.EnumMigrationState), 200)]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.DmpQueueStorage), "MigrationStatusParams")]
+        public IActionResult GetMigrationStatus()
         {
-            return this.Ok(_dmpQueueStorage.GetConfiguration());
-        }
-        
-        /// <summary>
-        /// >> PageIndex
-        ///  The page index.
-        /// </summary>
-        [HttpGet("PageIndex")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.cumulus_pallet_dmp_queue.PageIndexData), 200)]
-        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.DmpQueueStorage), "PageIndexParams")]
-        public IActionResult GetPageIndex()
-        {
-            return this.Ok(_dmpQueueStorage.GetPageIndex());
-        }
-        
-        /// <summary>
-        /// >> Pages
-        ///  The queue pages.
-        /// </summary>
-        [HttpGet("Pages")]
-        [ProducesResponseType(typeof(Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>>), 200)]
-        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.DmpQueueStorage), "PagesParams", typeof(Substrate.NetApi.Model.Types.Primitive.U32))]
-        public IActionResult GetPages(string key)
-        {
-            return this.Ok(_dmpQueueStorage.GetPages(key));
-        }
-        
-        /// <summary>
-        /// >> Overweight
-        ///  The overweight messages.
-        /// </summary>
-        [HttpGet("Overweight")]
-        [ProducesResponseType(typeof(Substrate.NetApi.Model.Types.Base.BaseTuple<Substrate.NetApi.Model.Types.Primitive.U32, Substrate.NetApi.Model.Types.Base.BaseVec<Substrate.NetApi.Model.Types.Primitive.U8>>), 200)]
-        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.DmpQueueStorage), "OverweightParams", typeof(Substrate.NetApi.Model.Types.Primitive.U64))]
-        public IActionResult GetOverweight(string key)
-        {
-            return this.Ok(_dmpQueueStorage.GetOverweight(key));
-        }
-        
-        /// <summary>
-        /// >> CounterForOverweight
-        /// Counter for the related counted storage map
-        /// </summary>
-        [HttpGet("CounterForOverweight")]
-        [ProducesResponseType(typeof(Substrate.NetApi.Model.Types.Primitive.U32), 200)]
-        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.DmpQueueStorage), "CounterForOverweightParams")]
-        public IActionResult GetCounterForOverweight()
-        {
-            return this.Ok(_dmpQueueStorage.GetCounterForOverweight());
+            return this.Ok(_dmpQueueStorage.GetMigrationStatus());
         }
     }
 }

@@ -38,9 +38,19 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.frame_system
     }
     
     /// <summary>
-    /// >> 379 - Variant[frame_system.Phase]
+    /// >> 446 - Variant[frame_system.Phase]
     /// </summary>
-    public sealed class EnumPhase : BaseEnumExt<Phase, Substrate.NetApi.Model.Types.Primitive.U32, BaseVoid, BaseVoid>
+    public sealed class EnumPhase : BaseEnumRust<Phase>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumPhase()
+        {
+				AddTypeDecoder<Substrate.NetApi.Model.Types.Primitive.U32>(Phase.ApplyExtrinsic);
+				AddTypeDecoder<BaseVoid>(Phase.Finalization);
+				AddTypeDecoder<BaseVoid>(Phase.Initialization);
+        }
     }
 }

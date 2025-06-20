@@ -24,19 +24,17 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_maintenance.pall
         
         /// <summary>
         /// >> enable
-        /// See [`Pallet::enable`].
         /// </summary>
         enable = 0,
         
         /// <summary>
         /// >> disable
-        /// See [`Pallet::disable`].
         /// </summary>
         disable = 1,
     }
     
     /// <summary>
-    /// >> 349 - Variant[pallet_maintenance.pallet.Call]
+    /// >> 410 - Variant[pallet_maintenance.pallet.Call]
     /// Contains a variant per dispatchable extrinsic that this pallet has.
     /// </summary>
     public sealed class EnumCall : BaseEnum<Call>

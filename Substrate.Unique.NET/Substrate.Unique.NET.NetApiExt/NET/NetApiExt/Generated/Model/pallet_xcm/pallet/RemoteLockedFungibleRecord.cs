@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_xcm.pallet
     
     
     /// <summary>
-    /// >> 554 - Composite[pallet_xcm.pallet.RemoteLockedFungibleRecord]
+    /// >> 631 - Composite[pallet_xcm.pallet.RemoteLockedFungibleRecord]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class RemoteLockedFungibleRecord : BaseType
@@ -31,15 +31,15 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_xcm.pallet
         /// <summary>
         /// >> owner
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedMultiLocation Owner { get; set; }
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedLocation Owner { get; set; }
         /// <summary>
         /// >> locker
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedMultiLocation Locker { get; set; }
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedLocation Locker { get; set; }
         /// <summary>
         /// >> consumers
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT38 Consumers { get; set; }
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT46 Consumers { get; set; }
         
         /// <inheritdoc/>
         public override string TypeName()
@@ -64,16 +64,16 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_xcm.pallet
             var start = p;
             Amount = new Substrate.NetApi.Model.Types.Primitive.U128();
             Amount.Decode(byteArray, ref p);
-            Owner = new Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedMultiLocation();
+            Owner = new Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedLocation();
             Owner.Decode(byteArray, ref p);
-            Locker = new Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedMultiLocation();
+            Locker = new Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.EnumVersionedLocation();
             Locker.Decode(byteArray, ref p);
-            Consumers = new Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT38();
+            Consumers = new Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT46();
             Consumers.Decode(byteArray, ref p);
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

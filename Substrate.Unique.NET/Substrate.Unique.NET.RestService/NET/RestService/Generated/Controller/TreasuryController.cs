@@ -39,6 +39,9 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         
         /// <summary>
         /// >> ProposalCount
+        ///  DEPRECATED: associated with `spend_local` call and will be removed in May 2025.
+        ///  Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`.
+        /// 
         ///  Number of proposals that have been made.
         /// </summary>
         [HttpGet("ProposalCount")]
@@ -51,6 +54,9 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         
         /// <summary>
         /// >> Proposals
+        ///  DEPRECATED: associated with `spend_local` call and will be removed in May 2025.
+        ///  Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`.
+        /// 
         ///  Proposals that have been made.
         /// </summary>
         [HttpGet("Proposals")]
@@ -75,10 +81,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         
         /// <summary>
         /// >> Approvals
+        ///  DEPRECATED: associated with `spend_local` call and will be removed in May 2025.
+        ///  Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`.
+        /// 
         ///  Proposal indices that have been approved but not yet awarded.
         /// </summary>
         [HttpGet("Approvals")]
-        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT22), 200)]
+        [ProducesResponseType(typeof(Substrate.Unique.NET.NetApiExt.Generated.Model.bounded_collections.bounded_vec.BoundedVecT27), 200)]
         [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.TreasuryStorage), "ApprovalsParams")]
         public IActionResult GetApprovals()
         {
@@ -107,6 +116,18 @@ namespace Substrate.Unique.NET.RestService.Generated.Controller
         public IActionResult GetSpends(string key)
         {
             return this.Ok(_treasuryStorage.GetSpends(key));
+        }
+        
+        /// <summary>
+        /// >> LastSpendPeriod
+        ///  The blocknumber for the last triggered spend period.
+        /// </summary>
+        [HttpGet("LastSpendPeriod")]
+        [ProducesResponseType(typeof(Substrate.NetApi.Model.Types.Primitive.U32), 200)]
+        [StorageKeyBuilder(typeof(Substrate.Unique.NET.NetApiExt.Generated.Storage.TreasuryStorage), "LastSpendPeriodParams")]
+        public IActionResult GetLastSpendPeriod()
+        {
+            return this.Ok(_treasuryStorage.GetLastSpendPeriod());
         }
     }
 }

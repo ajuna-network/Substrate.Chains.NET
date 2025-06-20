@@ -9,7 +9,7 @@
 
 using Substrate.NetApi.Attributes;
 using Substrate.NetApi.Model.Types.Base;
-using Substrate.NetApi.Model.Types.Metadata.V14;
+using Substrate.NetApi.Model.Types.Metadata.Base;
 using System.Collections.Generic;
 
 
@@ -18,7 +18,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.sp_consensus_aura.sr255
     
     
     /// <summary>
-    /// >> 423 - Composite[sp_consensus_aura.sr25519.app_sr25519.Public]
+    /// >> 489 - Composite[sp_consensus_aura.sr25519.app_sr25519.Public]
     /// </summary>
     [SubstrateNodeType(TypeDefEnum.Composite)]
     public sealed class Public : BaseType
@@ -27,7 +27,7 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.sp_consensus_aura.sr255
         /// <summary>
         /// >> value
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.sr25519.Public Value { get; set; }
+        public Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8 Value { get; set; }
         
         /// <inheritdoc/>
         public override string TypeName()
@@ -47,12 +47,12 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.sp_consensus_aura.sr255
         public override void Decode(byte[] byteArray, ref int p)
         {
             var start = p;
-            Value = new Substrate.Unique.NET.NetApiExt.Generated.Model.sp_core.sr25519.Public();
+            Value = new Substrate.Unique.NET.NetApiExt.Generated.Types.Base.Arr32U8();
             Value.Decode(byteArray, ref p);
             var bytesLength = p - start;
             TypeSize = bytesLength;
             Bytes = new byte[bytesLength];
-            System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
+            global::System.Array.Copy(byteArray, start, Bytes, 0, bytesLength);
         }
     }
 }

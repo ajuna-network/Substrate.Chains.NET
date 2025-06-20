@@ -34,7 +34,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> CollectionToForeignAsset
         ///  The corresponding foreign assets of collections.
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetId GetCollectionToForeignAsset(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.AssetId GetCollectionToForeignAsset(string key);
         
         /// <summary>
         /// >> ForeignReserveAssetInstanceToTokenId
@@ -46,7 +46,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> TokenIdToForeignReserveAssetInstance
         ///  The correponding reserve NFT of a token ID
         /// </summary>
-        Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetInstance GetTokenIdToForeignReserveAssetInstance(string key);
+        Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.EnumAssetInstance GetTokenIdToForeignReserveAssetInstance(string key);
     }
     
     /// <summary>
@@ -63,7 +63,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _collectionToForeignAssetTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetId> _collectionToForeignAssetTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.AssetId> _collectionToForeignAssetTypedStorage;
         
         /// <summary>
         /// _foreignReserveAssetInstanceToTokenIdTypedStorage typed storage field
@@ -73,7 +73,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _tokenIdToForeignReserveAssetInstanceTypedStorage typed storage field
         /// </summary>
-        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetInstance> _tokenIdToForeignReserveAssetInstanceTypedStorage;
+        private TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.EnumAssetInstance> _tokenIdToForeignReserveAssetInstanceTypedStorage;
         
         /// <summary>
         /// ForeignAssetsStorage constructor.
@@ -81,9 +81,9 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         public ForeignAssetsStorage(IStorageDataProvider storageDataProvider, List<IStorageChangeDelegate> storageChangeDelegates)
         {
             this.ForeignAssetToCollectionTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.CollectionId>("ForeignAssets.ForeignAssetToCollection", storageDataProvider, storageChangeDelegates);
-            this.CollectionToForeignAssetTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetId>("ForeignAssets.CollectionToForeignAsset", storageDataProvider, storageChangeDelegates);
+            this.CollectionToForeignAssetTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.AssetId>("ForeignAssets.CollectionToForeignAsset", storageDataProvider, storageChangeDelegates);
             this.ForeignReserveAssetInstanceToTokenIdTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs.TokenId>("ForeignAssets.ForeignReserveAssetInstanceToTokenId", storageDataProvider, storageChangeDelegates);
-            this.TokenIdToForeignReserveAssetInstanceTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetInstance>("ForeignAssets.TokenIdToForeignReserveAssetInstance", storageDataProvider, storageChangeDelegates);
+            this.TokenIdToForeignReserveAssetInstanceTypedStorage = new TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.EnumAssetInstance>("ForeignAssets.TokenIdToForeignReserveAssetInstance", storageDataProvider, storageChangeDelegates);
         }
         
         /// <summary>
@@ -104,7 +104,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _collectionToForeignAssetTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetId> CollectionToForeignAssetTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.AssetId> CollectionToForeignAssetTypedStorage
         {
             get
             {
@@ -134,7 +134,7 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// <summary>
         /// _tokenIdToForeignReserveAssetInstanceTypedStorage property
         /// </summary>
-        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetInstance> TokenIdToForeignReserveAssetInstanceTypedStorage
+        public TypedMapStorage<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.EnumAssetInstance> TokenIdToForeignReserveAssetInstanceTypedStorage
         {
             get
             {
@@ -199,13 +199,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> CollectionToForeignAsset
         ///  The corresponding foreign assets of collections.
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetId GetCollectionToForeignAsset(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.AssetId GetCollectionToForeignAsset(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (CollectionToForeignAssetTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetId result))
+            if (CollectionToForeignAssetTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.AssetId result))
             {
                 return result;
             }
@@ -257,13 +257,13 @@ namespace Substrate.Unique.NET.RestService.Generated.Storage
         /// >> TokenIdToForeignReserveAssetInstance
         ///  The correponding reserve NFT of a token ID
         /// </summary>
-        public Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetInstance GetTokenIdToForeignReserveAssetInstance(string key)
+        public Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.EnumAssetInstance GetTokenIdToForeignReserveAssetInstance(string key)
         {
             if ((key == null))
             {
                 return null;
             }
-            if (TokenIdToForeignReserveAssetInstanceTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.xcm.v3.multiasset.EnumAssetInstance result))
+            if (TokenIdToForeignReserveAssetInstanceTypedStorage.Dictionary.TryGetValue(key, out Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.asset.EnumAssetInstance result))
             {
                 return result;
             }

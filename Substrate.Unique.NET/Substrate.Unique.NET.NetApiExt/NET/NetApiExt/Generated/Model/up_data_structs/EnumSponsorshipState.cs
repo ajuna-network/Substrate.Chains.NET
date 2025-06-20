@@ -38,9 +38,19 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.up_data_structs
     }
     
     /// <summary>
-    /// >> 646 - Variant[up_data_structs.SponsorshipState]
+    /// >> 727 - Variant[up_data_structs.SponsorshipState]
     /// </summary>
-    public sealed class EnumSponsorshipState : BaseEnumExt<SponsorshipState, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm.account.EnumBasicCrossAccountIdRepr, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm.account.EnumBasicCrossAccountIdRepr>
+    public sealed class EnumSponsorshipState : BaseEnumRust<SponsorshipState>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumSponsorshipState()
+        {
+				AddTypeDecoder<BaseVoid>(SponsorshipState.Disabled);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm.account.EnumBasicCrossAccountIdRepr>(SponsorshipState.Unconfirmed);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_evm.account.EnumBasicCrossAccountIdRepr>(SponsorshipState.Confirmed);
+        }
     }
 }

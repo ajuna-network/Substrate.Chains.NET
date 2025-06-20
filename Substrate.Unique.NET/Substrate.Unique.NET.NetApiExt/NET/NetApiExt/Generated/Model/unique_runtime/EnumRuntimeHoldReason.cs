@@ -22,6 +22,11 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.unique_runtime
     {
         
         /// <summary>
+        /// >> StateTrieMigration
+        /// </summary>
+        StateTrieMigration = 1,
+        
+        /// <summary>
         /// >> CollatorSelection
         /// </summary>
         CollatorSelection = 23,
@@ -30,12 +35,40 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.unique_runtime
         /// >> Preimage
         /// </summary>
         Preimage = 41,
+        
+        /// <summary>
+        /// >> Council
+        /// </summary>
+        Council = 43,
+        
+        /// <summary>
+        /// >> TechnicalCommittee
+        /// </summary>
+        TechnicalCommittee = 44,
+        
+        /// <summary>
+        /// >> FinancialCouncil
+        /// </summary>
+        FinancialCouncil = 97,
     }
     
     /// <summary>
-    /// >> 437 - Variant[unique_runtime.RuntimeHoldReason]
+    /// >> 502 - Variant[unique_runtime.RuntimeHoldReason]
     /// </summary>
-    public sealed class EnumRuntimeHoldReason : BaseEnumExt<RuntimeHoldReason, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collator_selection.pallet.EnumHoldReason, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, BaseVoid, Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_preimage.pallet.EnumHoldReason>
+    public sealed class EnumRuntimeHoldReason : BaseEnumRust<RuntimeHoldReason>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumRuntimeHoldReason()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_state_trie_migration.pallet.EnumHoldReason>(RuntimeHoldReason.StateTrieMigration);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collator_selection.pallet.EnumHoldReason>(RuntimeHoldReason.CollatorSelection);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_preimage.pallet.EnumHoldReason>(RuntimeHoldReason.Preimage);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collective.pallet.EnumHoldReason>(RuntimeHoldReason.Council);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collective.pallet.EnumHoldReason>(RuntimeHoldReason.TechnicalCommittee);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_collective.pallet.EnumHoldReason>(RuntimeHoldReason.FinancialCouncil);
+        }
     }
 }

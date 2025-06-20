@@ -24,16 +24,24 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_ethereum.pallet
         
         /// <summary>
         /// >> transact
-        /// See [`Pallet::transact`].
+        /// Transact an Ethereum transaction.
         /// </summary>
         transact = 0,
     }
     
     /// <summary>
-    /// >> 332 - Variant[pallet_ethereum.pallet.Call]
+    /// >> 393 - Variant[pallet_ethereum.pallet.Call]
     /// Contains a variant per dispatchable extrinsic that this pallet has.
     /// </summary>
-    public sealed class EnumCall : BaseEnumExt<Call, Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.transaction.EnumTransactionV2>
+    public sealed class EnumCall : BaseEnumRust<Call>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumCall()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.ethereum.transaction.EnumTransactionV2>(Call.transact);
+        }
     }
 }

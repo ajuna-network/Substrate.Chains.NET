@@ -33,9 +33,18 @@ namespace Substrate.Unique.NET.NetApiExt.Generated.Model.pallet_xcm.pallet
     }
     
     /// <summary>
-    /// >> 205 - Variant[pallet_xcm.pallet.Origin]
+    /// >> 233 - Variant[pallet_xcm.pallet.Origin]
     /// </summary>
-    public sealed class EnumOrigin : BaseEnumExt<Origin, Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v3.multilocation.MultiLocation, Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v3.multilocation.MultiLocation>
+    public sealed class EnumOrigin : BaseEnumRust<Origin>
     {
+        
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public EnumOrigin()
+        {
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.location.Location>(Origin.Xcm);
+				AddTypeDecoder<Substrate.Unique.NET.NetApiExt.Generated.Model.staging_xcm.v5.location.Location>(Origin.Response);
+        }
     }
 }
